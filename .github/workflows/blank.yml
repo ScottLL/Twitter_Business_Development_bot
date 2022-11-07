@@ -32,7 +32,9 @@ jobs:
         with:
                python-version: '3.9' 
       - name: Run a one-line script
+        
         run: 
+            ls -la;
             python -m pip install -r requirements.txt；
             python searching_tweets.py
         env:
