@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: python searching_tweets.py
         env:
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }} 
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }} 
@@ -46,3 +46,4 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
