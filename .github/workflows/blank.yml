@@ -32,7 +32,8 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v4
         with:
-               python-version: '3.9' 
+              python-version: '3.10' 
+          
                
        # this Action should follow steps to set up Python build environment
       - name: Install Python dependencies
