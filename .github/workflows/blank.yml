@@ -31,11 +31,16 @@ jobs:
         with:
                python-version: '3.10' 
         
-      - name: Run a one-line script
-        run: 
-            pip install --upgrade pip
-            pip install -r requirements.txt
-            python searching_tweets.py
+      - name: upgrade pip
+        run: pip install --upgrade pip
+      
+      - name: install requirements
+        run: pip install -r requirements.txt
+        
+      - name: run main
+        run:  python searching_tweets.py
+        
+        
         env:
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }} 
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }} 
