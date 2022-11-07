@@ -1,4 +1,4 @@
 tweepy
 pandas 
-os == 0.1.2
+os == 0.1.*
 time
