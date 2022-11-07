@@ -45,6 +45,12 @@ jobs:
         run: 
             python -m pip install -r requirements.txt
             python searching_tweets.py
+            
+#       - name: run install os
+#         run:
+#             python -m pip install os
+#         version: 
+#             1.0.2
         env:
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }} 
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }} 
