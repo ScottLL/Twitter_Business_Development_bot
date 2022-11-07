@@ -38,7 +38,7 @@ jobs:
       - name: Install Python dependencies
         uses: py-actions/py-dependency-install@v4
         with:
-          path: "path/to/requirements.txt"
+          path: "requirements.txt"
           
       - name: Run a one-line script
         run: 
