@@ -2,4 +2,5 @@ tweepy
 pandas 
 pylint
 pytest
-
+tox tox-conda
+fsspec
