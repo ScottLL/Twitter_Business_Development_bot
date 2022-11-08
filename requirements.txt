@@ -3,3 +3,4 @@ pandas
 pylint
 pytest
 fsspec
+s3fs
