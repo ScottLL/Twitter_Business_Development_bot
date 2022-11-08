@@ -44,6 +44,7 @@ jobs:
       - name: Run a one-line script
         run: 
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            pip install flake8 pytest
             python searching_tweets.py;
             
 #             python -m pip3 install -r requirements.txt;
