@@ -3,7 +3,7 @@ install:
 		pip install -r requirements.txt
 
 test:
-	python -m searching_tweets.py
+	python -m pytest vv main.py
 
 format:
 	black *.py
