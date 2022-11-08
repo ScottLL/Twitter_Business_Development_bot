@@ -7,8 +7,12 @@ jobs:
     name: pass-secret-to-action
     runs-on: ubuntu-latest
     steps:
-    - name: add secret to Environment variables
-#       uses: actions/setup-python@v1
+    - name: Testing Secrets
+      run: |
+        echo "$DEVOPS"
+      env:
+        DEVOPS: ${{ secrets:SECRETS_TOKEN }}
+    - name: Environment variables
       run: |
         echo "access_key: ${ACCESS_KEY}"
         echo "secret_access_key: ${SECRET_ACCESS_KEY}"
