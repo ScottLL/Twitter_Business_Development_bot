@@ -30,14 +30,21 @@ jobs:
         make lint
     - name: Test with pytest
       env:
-       export access_key: ${{ secrets.ACCESS_KEY }} 
-       export secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
-       export consumer_key: ${{ secrets.CONSUMER_KEY }}
-       export consumer_secret: ${{ secrets.CONSUMER_SECRET }}
-       export Bearer_Token: ${{ secrets.BEARER_TOKEN }}
-       export Token: ${{ secrets.TOKEN }}
-       export Token_Secret: ${{ secrets.TOKEN_SECRET }}
+       access_key: ${{ secrets.ACCESS_KEY }} 
+       secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+       consumer_key: ${{ secrets.CONSUMER_KEY }}
+       consumer_secret: ${{ secrets.CONSUMER_SECRET }}
+       Bearer_Token: ${{ secrets.BEARER_TOKEN }}
+       Token: ${{ secrets.TOKEN }}
+       Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
+        echo "access_key: ${ACCESS_KEY}"
+        echo "secret_access_key: ${SECRET_ACCESS_KEY}"
+        echo "consumer_key: ${CONSUMER_KEY}"
+        echo "consumer_secret: ${CONSUMER_SECRET}"
+        echo "Bearer_Token: ${BEARER_TOKEN}"
+        echo "Token: ${TOKEN }"
+        echo "Token_Secret: ${TOKEN_SECRET}"
         make test
     - name: Format code
       run: |
