@@ -21,9 +21,6 @@ jobs:
       env:
        access_key: ${{ secrets.ACCESS_KEY }}
        secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
-       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-       Credentials_Access_Key_ID: ${{ secrets.CREDENTIALS_ACCESS_KEY_ID }}
-       Credentials_Secret_Access_Key: ${{ secrets.CREDENTIALS_SECRET_ACCESS_KEY }}
        consumer_key: ${{ secrets.CONSUMER_KEY }}
        consumer_secret: ${{ secrets.CONSUMER_SECRET }}
        Bearer_Token: ${{ secrets.BEARER_TOKEN }}
@@ -35,14 +32,12 @@ jobs:
       env:
        access_key: ${{ secrets.ACCESS_KEY }}
        secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
-       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-       Credentials_Access_Key_ID: ${{ secrets.CREDENTIALS_ACCESS_KEY_ID }}
-       Credentials_Secret_Access_Key: ${{ secrets.CREDENTIALS_SECRET_ACCESS_KEY }}
        consumer_key: ${{ secrets.CONSUMER_KEY }}
        consumer_secret: ${{ secrets.CONSUMER_SECRET }}
        Bearer_Token: ${{ secrets.BEARER_TOKEN }}
        Token: ${{ secrets.TOKEN }}
        Token_Secret: ${{ secrets.TOKEN_SECRET }}
+       
       run: |
         make test
     - name: Format code
