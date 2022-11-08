@@ -3,40 +3,40 @@ import pandas as pd
 import os
 import time
 
-consumer_key = os.environ['CONSUMER_KEY']
-consumer_secret = os.environ['CONSUMER_SECRET']
-Bearer_Token = os.environ['BEARER_TOKEN']
-Token = os.environ['Token']
-Token_Secret = os.environ['Token_Secret']
-
-
-OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
-access_key =  os.environ['ACCESS_KEY']
-secret_access_key = os.environ['SECRET_ACCESS_KEY']
-Credentials_Access_Key_ID = os.environ['CREDENTIALS_ACCESS_KEY_ID']
-Credentials_Secret_Access_Key = os.environ['CREDENTIALS_SECRET_ACCESS_KEY']
-
-
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(Token, Token_Secret)
-api = tweepy.API(auth)
-
-getClient = tweepy.Client(bearer_token=Bearer_Token,
-                          consumer_key=consumer_key,
-                          consumer_secret=consumer_secret,
-                          access_token=Token,
-                          access_token_secret=Token_Secret)
-client = getClient
-
-
-search_df = pd.read_csv('s3://projecttwitterbot/Searching/search_df.csv',
-                    storage_options={'key': access_key, 'secret': secret_access_key})
-search_df = search_df.drop(columns=['Unnamed: 0'])
-search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
-
-
 
 def searchTweets(query, max_results):
+    consumer_key = os.environ['CONSUMER_KEY']
+    consumer_secret = os.environ['CONSUMER_SECRET']
+    Bearer_Token = os.environ['BEARER_TOKEN']
+    Token = os.environ['Token']
+    Token_Secret = os.environ['Token_Secret']
+
+
+    OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
+    access_key =  os.environ['ACCESS_KEY']
+    secret_access_key = os.environ['SECRET_ACCESS_KEY']
+    Credentials_Access_Key_ID = os.environ['CREDENTIALS_ACCESS_KEY_ID']
+    Credentials_Secret_Access_Key = os.environ['CREDENTIALS_SECRET_ACCESS_KEY']
+
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(Token, Token_Secret)
+    api = tweepy.API(auth)
+
+    getClient = tweepy.Client(bearer_token=Bearer_Token,
+                              consumer_key=consumer_key,
+                              consumer_secret=consumer_secret,
+                              access_token=Token,
+                              access_token_secret=Token_Secret)
+    client = getClient
+
+    search_df = pd.read_csv('s3://projecttwitterbot/Searching/search_df.csv',
+                        storage_options={'key': access_key, 'secret': secret_access_key})
+    search_df = search_df.drop(columns=['Unnamed: 0'])
+    search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
+
+  
+  
     tweets = client.search_recent_tweets(query=query,
                                          tweet_fields=[
                                              'id','text', 'context_annotations', 'created_at', 'lang'],
@@ -86,10 +86,10 @@ def searchTweets(query, max_results):
                      storage_options={'key': access_key, 'secret': secret_access_key})
     return new_df
 
-if __name__ == '__main__':
-#       coins = ['BTC','ETH','DOGE','ADA','BNB','XRP','SOL','MATIC','DOT','STETH','SHIB','TRX','DAI','UNI','WBTC','LTC','LEO','OKB','ATOM','LINK','FTT','XLM','CRO','XMR','ALGO','NEAR','TON']
-    coins = ['BTC','ETH','DOGE','ADA','DAI','UNI','WBTC','LTC','LEO'] 
-    for i in coins:
-        searchTweets(i, int(200/len(coins)))
-        time.sleep(60*15)
+# if __name__ == '__main__':
+# #       coins = ['BTC','ETH','DOGE','ADA','BNB','XRP','SOL','MATIC','DOT','STETH','SHIB','TRX','DAI','UNI','WBTC','LTC','LEO','OKB','ATOM','LINK','FTT','XLM','CRO','XMR','ALGO','NEAR','TON']
+#     coins = ['BTC','ETH','DOGE','ADA','DAI','UNI','WBTC','LTC','LEO'] 
+#     for i in coins:
+#         searchTweets(i, int(200/len(coins)))
+#         time.sleep(60*15)
 
