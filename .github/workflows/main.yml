@@ -3,27 +3,27 @@ name: Python searching_tweets.py
 on: [push]
 
 jobs:
-  default-env-variables:
-    name: pass-secret-to-action
-    runs-on: ubuntu-latest
-    steps:
-    - name: Testing Secrets
-      run: |
-        echo "$DEVOPS"
-      env:
-        DEVOPS: ${{ secrets:SECRETS_TOKEN }}
-    - name: Environment variables
-      run: |
-        echo "access_key: ${ACCESS_KEY}"
-        echo "secret_access_key: ${SECRET_ACCESS_KEY}"
-        echo "OPENAI_API_KEY: ${OPENAI_API_KEY}"
-        echo "Credentials_Access_Key_ID: ${CREDENTIALS_ACCESS_KEY_ID}"
-        echo "Credentials_Secret_Access_Key: ${{CREDENTIALS_SECRET_ACCESS_KEY}"
-        echo "consumer_key: ${CONSUMER_KEY}"
-        echo "consumer_secret: ${CONSUMER_SECRET}"
-        echo "Bearer_Token: ${BEARER_TOKEN}"
-        echo "Token: ${TOKEN }"
-        echo "Token_Secret: ${TOKEN_SECRET}"
+#   default-env-variables:
+#     name: pass-secret-to-action
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Testing Secrets
+#       run: |
+#         echo "$DEVOPS"
+#       env:
+#         DEVOPS: ${{ secrets:SECRETS_TOKEN }}
+#     - name: Environment variables
+#       run: |
+#         echo "access_key: ${ACCESS_KEY}"
+#         echo "secret_access_key: ${SECRET_ACCESS_KEY}"
+#         echo "OPENAI_API_KEY: ${OPENAI_API_KEY}"
+#         echo "Credentials_Access_Key_ID: ${CREDENTIALS_ACCESS_KEY_ID}"
+#         echo "Credentials_Secret_Access_Key: ${{CREDENTIALS_SECRET_ACCESS_KEY}"
+#         echo "consumer_key: ${CONSUMER_KEY}"
+#         echo "consumer_secret: ${CONSUMER_SECRET}"
+#         echo "Bearer_Token: ${BEARER_TOKEN}"
+#         echo "Token: ${TOKEN }"
+#         echo "Token_Secret: ${TOKEN_SECRET}"
   
   build:
     runs-on: ubuntu-latest
@@ -41,6 +41,16 @@ jobs:
         
     - name: Lint with pylint
       run: |
+        export access_key: ${{ secrets.ACCESS_KEY }}
+        export secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+        export OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        export Credentials_Access_Key_ID: ${{ secrets.CREDENTIALS_ACCESS_KEY_ID }}
+        export Credentials_Secret_Access_Key: ${{ secrets.CREDENTIALS_SECRET_ACCESS_KEY }}
+        export  consumer_key: ${{ secrets.CONSUMER_KEY }}
+        export consumer_secret: ${{ secrets.CONSUMER_SECRET }}
+        export Bearer_Token: ${{ secrets.BEARER_TOKEN }}
+        export Token: ${{ secrets.TOKEN }}
+        export Token_Secret: ${{ secrets.TOKEN_SECRET }}
         make lint
     - name: Test with pytest
       run: |
