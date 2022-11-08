@@ -2,39 +2,7 @@ name: Python searching_tweets.py
 
 on: [push]
 
-jobs:  
-  default-env-variables:
-    name: pass-secret-to-action
-    runs-on: ubuntu-latest
-    steps:
-    - name: Testing Secrets
-      run: |
-        echo "$DEVOPS"
-      env:
-        DEVOPS: 
-          ${{ access_key:ACCESS_KEY }}
-          ${{ secret_access_key:SECRET_ACCESS_KEY }}
-          ${{ OPENAI_API_KEY:OPENAI_API_KEY }}
-          ${{ Credentials_Access_Key_ID:CREDENTIALS_ACCESS_KEY_ID }}
-          ${{ Credentials_Secret_Access_Key:CREDENTIALS_SECRET_ACCESS_KEY }}
-          ${{ consumer_key:CONSUMER_KEY }}
-          ${{ Bearer_Token:BEARER_TOKEN }}
-          ${{ Token:TOKEN }}
-          ${{ Token_Secret:TOKEN_SECRET }}
-          
-    - name: Environment variables
-      run: |
-        echo "access_key: ${ACCESS_KEY}"
-        echo "secret_access_key: ${SECRET_ACCESS_KEY}"
-        echo "OPENAI_API_KEY: ${OPENAI_API_KEY}"
-        echo "Credentials_Access_Key_ID: ${CREDENTIALS_ACCESS_KEY_ID}"
-        echo "Credentials_Secret_Access_Key: ${{CREDENTIALS_SECRET_ACCESS_KEY}"
-        echo "consumer_key: ${CONSUMER_KEY}"
-        echo "consumer_secret: ${CONSUMER_SECRET}"
-        echo "Bearer_Token: ${BEARER_TOKEN}"
-        echo "Token: ${TOKEN }"
-        echo "Token_Secret: ${TOKEN_SECRET}"
-        
+jobs:   
   build:
     runs-on: ubuntu-latest
 
@@ -50,9 +18,31 @@ jobs:
         make install
         
     - name: Lint with pylint
+      env:
+       access_key: ${{ secrets.ACCESS_KEY }}
+       secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+       Credentials_Access_Key_ID: ${{ secrets.CREDENTIALS_ACCESS_KEY_ID }}
+       Credentials_Secret_Access_Key: ${{ secrets.CREDENTIALS_SECRET_ACCESS_KEY }}
+       consumer_key: ${{ secrets.CONSUMER_KEY }}
+       consumer_secret: ${{ secrets.CONSUMER_SECRET }}
+       Bearer_Token: ${{ secrets.BEARER_TOKEN }}
+       Token: ${{ secrets.TOKEN }}
+       Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
         make lint
     - name: Test with pytest
+      env:
+       access_key: ${{ secrets.ACCESS_KEY }}
+       secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+       Credentials_Access_Key_ID: ${{ secrets.CREDENTIALS_ACCESS_KEY_ID }}
+       Credentials_Secret_Access_Key: ${{ secrets.CREDENTIALS_SECRET_ACCESS_KEY }}
+       consumer_key: ${{ secrets.CONSUMER_KEY }}
+       consumer_secret: ${{ secrets.CONSUMER_SECRET }}
+       Bearer_Token: ${{ secrets.BEARER_TOKEN }}
+       Token: ${{ secrets.TOKEN }}
+       Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
         make test
     - name: Format code
