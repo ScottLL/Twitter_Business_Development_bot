@@ -14,7 +14,6 @@ jobs:
     - name: add secret
       uses: actions/setup-python@v1
       with:
-        python-version: 3.10.8
         access_key: ${{ secrets.ACCESS_KEY }}
         secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -33,6 +32,8 @@ jobs:
     - name: create issue 
     - uses: actions/checkout@v2
     - name: Set up Python 3.10.8
+      with:
+        python-version: 3.10.8
         
     - name: Install dependencies
       run: |
