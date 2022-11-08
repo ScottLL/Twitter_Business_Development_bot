@@ -38,13 +38,13 @@ jobs:
        Token: ${{ secrets.TOKEN }}
        Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
-        echo "access_key: ${ACCESS_KEY}"
-        echo "secret_access_key: ${SECRET_ACCESS_KEY}"
-        echo "consumer_key: ${CONSUMER_KEY}"
-        echo "consumer_secret: ${CONSUMER_SECRET}"
-        echo "Bearer_Token: ${BEARER_TOKEN}"
-        echo "Token: ${TOKEN }"
-        echo "Token_Secret: ${TOKEN_SECRET}"
+        echo access_key: "${ACCESS_KEY}"
+        echo secret_access_key: "${SECRET_ACCESS_KEY}"
+        echo consumer_key: "${CONSUMER_KEY}"
+        echo consumer_secret: "${CONSUMER_SECRET}"
+        echo Bearer_Token: "${BEARER_TOKEN}"
+        echo Token: "${TOKEN }"
+        echo Token_Secret: "${TOKEN_SECRET}"
         make test
     - name: Format code
       run: |
