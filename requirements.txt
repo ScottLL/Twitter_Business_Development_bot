@@ -4,4 +4,3 @@ pylint
 pytest
 fsspec
 s3fs==0.4.2
-boto3==1.13.11
