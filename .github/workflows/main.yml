@@ -11,7 +11,17 @@ jobs:
       run: |
         echo "$DEVOPS"
       env:
-        DEVOPS: ${{ secrets:SECRETS_TOKEN }}
+        DEVOPS: 
+          ${{ access_key:ACCESS_KEY }}
+          ${{ secret_access_key:SECRET_ACCESS_KEY }}
+          ${{ OPENAI_API_KEY:OPENAI_API_KEY }}
+          ${{ Credentials_Access_Key_ID:CREDENTIALS_ACCESS_KEY_ID }}
+          ${{ Credentials_Secret_Access_Key:CREDENTIALS_SECRET_ACCESS_KEY }}
+          ${{ consumer_key:CONSUMER_KEY }}
+          ${{ Bearer_Token:BEARER_TOKEN }}
+          ${{ Token:TOKEN }}
+          ${{ Token_Secret:TOKEN_SECRET }}
+          
     - name: Environment variables
       run: |
         echo "access_key: ${ACCESS_KEY}"
