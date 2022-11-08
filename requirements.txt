@@ -1,3 +1,4 @@
 tweepy
 pandas 
-
+pylint
+pytest
