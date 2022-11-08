@@ -19,25 +19,24 @@ jobs:
         
     - name: Lint with pylint
       env:
-       access_key: ${{ secrets.ACCESS_KEY }}
-       secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
-       consumer_key: ${{ secrets.CONSUMER_KEY }}
-       consumer_secret: ${{ secrets.CONSUMER_SECRET }}
-       Bearer_Token: ${{ secrets.BEARER_TOKEN }}
-       Token: ${{ secrets.TOKEN }}
-       Token_Secret: ${{ secrets.TOKEN_SECRET }}
+       export access_key: ${{ secrets.ACCESS_KEY }}
+       export secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+       export consumer_key: ${{ secrets.CONSUMER_KEY }}
+       export consumer_secret: ${{ secrets.CONSUMER_SECRET }}
+       export Bearer_Token: ${{ secrets.BEARER_TOKEN }}
+       export Token: ${{ secrets.TOKEN }}
+       export Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
         make lint
     - name: Test with pytest
       env:
-       access_key: ${{ secrets.ACCESS_KEY }} 
-       secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
-       consumer_key: ${{ secrets.CONSUMER_KEY }}
-       consumer_secret: ${{ secrets.CONSUMER_SECRET }}
-       Bearer_Token: ${{ secrets.BEARER_TOKEN }}
-       Token: ${{ secrets.TOKEN }}
-       Token_Secret: ${{ secrets.TOKEN_SECRET }}
-       
+       export access_key: ${{ secrets.ACCESS_KEY }} 
+       export secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+       export consumer_key: ${{ secrets.CONSUMER_KEY }}
+       export consumer_secret: ${{ secrets.CONSUMER_SECRET }}
+       export Bearer_Token: ${{ secrets.BEARER_TOKEN }}
+       export Token: ${{ secrets.TOKEN }}
+       export Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
         make test
     - name: Format code
