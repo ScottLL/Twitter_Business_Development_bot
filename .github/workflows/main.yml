@@ -20,7 +20,7 @@ jobs:
       run: |
         make install
     - name: Pass the received secret to an action
-      uses: ./.github/actions/my-action
+      uses: actions/setup-python@v1
       env:
         access_key: ${{ secrets.ACCESS_KEY }}
         secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
