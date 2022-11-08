@@ -2,5 +2,4 @@ tweepy
 pandas 
 pylint
 pytest
-os
-time
+
