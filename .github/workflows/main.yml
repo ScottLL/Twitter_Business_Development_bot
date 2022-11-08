@@ -43,7 +43,7 @@ jobs:
         echo consumer_key: "${CONSUMER_KEY}"
         echo consumer_secret: "${CONSUMER_SECRET}"
         echo Bearer_Token: "${BEARER_TOKEN}"
-        echo Token: "${TOKEN }"
+        echo Token: "${TOKEN}"
         echo Token_Secret: "${TOKEN_SECRET}"
         make test
     - name: Format code
