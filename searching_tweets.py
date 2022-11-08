@@ -1,7 +1,7 @@
 import tweepy
 import pandas as pd
 import os
-import time
+
 
 
 def searchTweets(query, max_results):
@@ -10,18 +10,13 @@ def searchTweets(query, max_results):
     Bearer_Token = os.environ['BEARER_TOKEN']
     Token = os.environ['Token']
     Token_Secret = os.environ['Token_Secret']
-
-
-    OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
     access_key =  os.environ['ACCESS_KEY']
     secret_access_key = os.environ['SECRET_ACCESS_KEY']
-    Credentials_Access_Key_ID = os.environ['CREDENTIALS_ACCESS_KEY_ID']
-    Credentials_Secret_Access_Key = os.environ['CREDENTIALS_SECRET_ACCESS_KEY']
+
 
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(Token, Token_Secret)
-    api = tweepy.API(auth)
 
     getClient = tweepy.Client(bearer_token=Bearer_Token,
                               consumer_key=consumer_key,
