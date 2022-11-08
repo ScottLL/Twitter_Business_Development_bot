@@ -28,13 +28,12 @@ getClient = tweepy.Client(bearer_token=Bearer_Token,
                           access_token_secret=Token_Secret)
 client = getClient
 
-search_df = pd.read_csv('/Users/scottlai/Desktop/cording_project/Twitter/Twitter_whole_Final/Twitter/search_df_1.csv')
+
+search_df = pd.read_csv('s3://projecttwitterbot/Searching/search_df.csv',
+                    storage_options={'key': access_key, 'secret': secret_access_key})
 search_df = search_df.drop(columns=['Unnamed: 0'])
 search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
-# search_df
 
-# search_df.to_csv("s3://projecttwitterbot/Searching/ai_search_df.csv",
-#                  storage_options={'key': access_key, 'secret': secret_access_key})
 
 
 def searchTweets(query, max_results):
@@ -83,14 +82,13 @@ def searchTweets(query, max_results):
     new_df = pd.merge(search_df, search_df_new, on = ['id','created_at','author_id','text','lang','username', 'verified','url','followers_count','following_count','tweet_count'], how='outer')
 
     # save the dataframe to s3
-    search_df.to_csv("s3://projecttwitterbot/Searching/search_df.csv",
-                     storage_options={'key': keys.access_key, 'secret': keys.secret_access_key})
-#     new_df.to_csv("/Users/scottlai/Desktop/cording_project/Twitter/Twitter_whole_Final/Twitter/search_df_1.csv")
-    return search_df
+    new_df.to_csv("s3://projecttwitterbot/Searching/search_df.csv",
+                     storage_options={'key': access_key, 'secret': secret_access_key})
+    return new_df
 
 if __name__ == '__main__':
 #       coins = ['BTC','ETH','DOGE','ADA','BNB','XRP','SOL','MATIC','DOT','STETH','SHIB','TRX','DAI','UNI','WBTC','LTC','LEO','OKB','ATOM','LINK','FTT','XLM','CRO','XMR','ALGO','NEAR','TON']
-    coins = ['DAI','UNI','WBTC','LTC','LEO'] 
+    coins = ['BTC','ETH','DOGE','ADA','DAI','UNI','WBTC','LTC','LEO'] 
     for i in coins:
         searchTweets(i, int(200/len(coins)))
         time.sleep(60*15)
