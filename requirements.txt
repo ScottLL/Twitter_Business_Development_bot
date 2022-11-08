@@ -1,6 +1,6 @@
 tweepy
-pandas==1.0.3
+pandas
 pylint
 pytest
 fsspec
-s3fs==0.4.2
+s3fs
