@@ -35,11 +35,12 @@ jobs:
 #        Token: ${{ secrets.TOKEN }}
 #        Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
+          echo consumer_key: "${CONSUMER_KEY}"
           python searching_tweets.py
           
 #         echo access_key: "${ACCESS_KEY}"
 #         echo secret_access_key: "${SECRET_ACCESS_KEY}"
-#         echo consumer_key: "${CONSUMER_KEY}"
+        
 #         echo consumer_secret: "${CONSUMER_SECRET}"
 #         echo Bearer_Token: "${BEARER_TOKEN}"
 #         echo Token: "${TOKEN}"
