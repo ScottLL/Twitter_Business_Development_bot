@@ -13,13 +13,17 @@ jobs:
       with:
         python-version: 3.10.8
       env:
-       access_key: ${{ secrets.ACCESS_KEY }}
-       secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+
        consumer_key: ${{ secrets.CONSUMER_KEY }}
        consumer_secret: ${{ secrets.CONSUMER_SECRET }}
        Bearer_Token: ${{ secrets.BEARER_TOKEN }}
        Token: ${{ secrets.TOKEN }}
        Token_Secret: ${{ secrets.TOKEN_SECRET }}
+       
+       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+       SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+       AWS_S3_ENDPOINT: https://s3.amazonaws.com
+       
         
     - name: Install dependencies
       run: |
@@ -27,22 +31,26 @@ jobs:
     
     - name: run python
       env:
-       access_key: ${{ secrets.ACCESS_KEY }}
-       secret_access_key: ${{ secrets.SECRET_ACCESS_KEY }}
+       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+       SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
        consumer_key: ${{ secrets.CONSUMER_KEY }}
        consumer_secret: ${{ secrets.CONSUMER_SECRET }}
        Bearer_Token: ${{ secrets.BEARER_TOKEN }}
        Token: ${{ secrets.TOKEN }}
        Token_Secret: ${{ secrets.TOKEN_SECRET }}
       run: |
-        echo access_key: "${ACCESS_KEY}"
-        echo secret_access_key: "${SECRET_ACCESS_KEY}"
+        aws configure set access_key $ACCESS_KEY
+        aws configure set secret_access_key $SECRET_ACCESS_KEY
         echo consumer_key: "${CONSUMER_KEY}"
         echo consumer_secret: "${CONSUMER_SECRET}"
         echo Bearer_Token: "${BEARER_TOKEN}"
         echo Token: "${TOKEN}"
         echo Token_Secret: "${TOKEN_SECRET}"
         python searching_tweets.py
+        
+#        echo access_key: "${ACCESS_KEY}"
+#        echo secret_access_key: "${SECRET_ACCESS_KEY}"
+
     
     
     
