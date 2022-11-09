@@ -21,7 +21,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'us-east-1'
         aws-bucket: ${{ secrets.AWS_S3_BUCKET }}
-        file-path: './test/test.csv'
+        file-path: './Searching/search_df.csv'
     
     
     
