@@ -18,6 +18,10 @@ def searchTweets(query, max_results):
 #     access_key =  os.environ['AWS_ACCESS_KEY_ID']
 #     secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
+    access_key =  'AKIAV6UJAU3DSAWHXZ75'
+    secret_access_key = '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'
+
+
 
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -32,6 +36,7 @@ def searchTweets(query, max_results):
 
     search_df = pd.read_csv('s3://projecttwitterbot/Searching/search_df.csv',
                         storage_options={'key': access_key, 'secret': secret_access_key})
+    
     search_df = search_df.drop(columns=['Unnamed: 0'])
     search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
 
