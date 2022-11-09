@@ -10,7 +10,7 @@ def searchTweets(query, max_results):
     Bearer_Token = os.environ['BEARER_TOKEN'] 
     Token = os.environ['TOKEN'] 
     Token_Secret = os.environ['TOKEN_SECRET']
-    print(Token_Secret)
+    print(len(Token_Secret))
 #             AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
 #         AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
 #         AWS_DEFAULT_REGION: 'eu-west-1'
