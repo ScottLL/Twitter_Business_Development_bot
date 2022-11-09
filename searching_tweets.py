@@ -5,7 +5,7 @@ import os
 
 
 def searchTweets(query, max_results):
-    consumer_key = os.environ['consumer_key']
+    consumer_key = os.environ['CONSUMER_KEY']
     consumer_secret = os.environ['consumer_secret']
     Bearer_Token = os.environ['Bearer_Token']
     Token = os.environ['Token'] 
