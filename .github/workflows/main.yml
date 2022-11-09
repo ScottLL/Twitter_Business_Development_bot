@@ -29,6 +29,8 @@ jobs:
     
     - name: run python
       env:
+       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+       SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
        aws_key_id: ${{ secrets.AWS_KEY_ID }}
        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
        consumer_key: ${{ secrets.CONSUMER_KEY }}
