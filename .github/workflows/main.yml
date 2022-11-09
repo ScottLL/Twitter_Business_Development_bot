@@ -17,8 +17,8 @@ jobs:
         python-version: 3.10.8
         args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
       env:
-       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-       SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+       aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+       aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
 #        aws_key_id: ${{ secrets.AWS_KEY_ID }}
 #        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
        consumer_key: ${{ secrets.CONSUMER_KEY }}
@@ -34,8 +34,8 @@ jobs:
     
     - name: run python
       env:
-       ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-       SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+       aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+       aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
 #        aws_key_id: ${{ secrets.AWS_KEY_ID }}
 #        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
@@ -44,8 +44,8 @@ jobs:
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
       run: |
-        echo ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-        echo SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
+        echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+        echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
         
         echo CONSUMER_KEY: "${CONSUMER_KEY}"
         echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
