@@ -5,11 +5,11 @@ import os
 
   
 def searchTweets(query, max_results):
-    consumer_key = os.environ['consumer_key']
-    consumer_secret = os.environ['consumer_secret']
-    Bearer_Token = os.environ['Bearer_Token'] 
-    Token = os.environ['Token'] 
-    Token_Secret = os.environ['Token_Secret']
+    consumer_key = os.environ['CONSUMER_KEY']
+    consumer_secret = os.environ['CONSUMER_SECRET']
+    Bearer_Token = os.environ['BEARER_TOKEN'] 
+    Token = os.environ['TOKEN'] 
+    Token_Secret = os.environ['TOKEN_SECRET']
     
 #             AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
 #         AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
