@@ -11,7 +11,7 @@ def searchTweets(query, max_results):
     Token = os.environ['Token'] 
     Token_Secret = os.environ['Token_Secret']
     access_key =  os.environ['ACCESS_KEY']
-    secret_access_key = os.environ['SECRET_ASSESS_KEY']
+    secret_access_key = os.environ['SECRET_ACCESS_KEY']
 
 
 
