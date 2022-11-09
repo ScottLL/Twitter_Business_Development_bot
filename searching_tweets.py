@@ -15,8 +15,8 @@ def searchTweets(query, max_results):
 #         AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
 #         AWS_DEFAULT_REGION: 'eu-west-1'
 
-    access_key =  os.environ['ACCESS_KEY']
-    secret_access_key = os.environ['SECRET_ACCESS_KEY']
+    access_key =  os.environ['aws-access-key-id']
+    secret_access_key = os.environ['aws-secret-access-key']
 
 #     access_key =  'AKIAV6UJAU3DSAWHXZ75'
 #     secret_access_key = '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'
