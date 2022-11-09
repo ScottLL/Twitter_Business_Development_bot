@@ -76,7 +76,7 @@ def searchTweets(query, max_results):
             obj['followers_count'] = user1.public_metrics['followers_count']
             obj['following_count'] = user1.public_metrics['following_count']
             obj['tweet_count'] = user1.public_metrics['tweet_count']
-
+ 
             results.append(obj)
     else:
         return "No tweets found"
