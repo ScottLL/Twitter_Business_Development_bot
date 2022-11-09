@@ -81,10 +81,11 @@ def searchTweets(query, max_results):
                      storage_options={'key': access_key, 'secret': secret_access_key})
     return new_df
 
-# if __name__ == '__main__':
-# #       coins = ['BTC','ETH','DOGE','ADA','BNB','XRP','SOL','MATIC','DOT','STETH','SHIB','TRX','DAI','UNI','WBTC','LTC','LEO','OKB','ATOM','LINK','FTT','XLM','CRO','XMR','ALGO','NEAR','TON']
+if __name__ == '__main__':
+#       coins = ['BTC','ETH','DOGE','ADA','BNB','XRP','SOL','MATIC','DOT','STETH','SHIB','TRX','DAI','UNI','WBTC','LTC','LEO','OKB','ATOM','LINK','FTT','XLM','CRO','XMR','ALGO','NEAR','TON']
 #     coins = ['BTC','ETH','DOGE','ADA','DAI','UNI','WBTC','LTC','LEO'] 
-#     for i in coins:
-#         searchTweets(i, int(200/len(coins)))
-#         time.sleep(60*15)
+    coins = ['BTC','ETH']
+    for i in coins:
+        searchTweets(i, int(200/len(coins)))
+        time.sleep(60*15)
 
