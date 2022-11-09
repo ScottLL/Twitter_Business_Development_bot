@@ -10,8 +10,8 @@ def searchTweets(query, max_results):
     Bearer_Token = os.environ['Bearer_Token']
     Token = os.environ['Token'] 
     Token_Secret = os.environ['Token_Secret']
-    access_key =  os.environ['access_key']
-    secret_access_key = os.environ['secret_access_key']
+    access_key =  os.environ['ACCESS_KEY']
+    secret_access_key = os.environ['SECRET_ASSESS_KEY']
 
 
 
