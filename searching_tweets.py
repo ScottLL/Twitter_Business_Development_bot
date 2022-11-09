@@ -16,7 +16,7 @@ def searchTweets(query, max_results):
 
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(Token, Token_Secret)
+    auth.set_access_token(Token, Token_Secret) 
 
     getClient = tweepy.Client(bearer_token=Bearer_Token,
                               consumer_key=consumer_key,
