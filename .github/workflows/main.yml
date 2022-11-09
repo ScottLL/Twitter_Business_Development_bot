@@ -37,6 +37,7 @@ jobs:
 #        Token_Secret: ${{ secrets.TOKEN_SECRET }}
 
       run: |
+          echo consumer_key: "${CONSUMER_KEY}"
           python searching_tweets.py
           
 #         echo access_key: "${ACCESS_KEY}"
