@@ -3,7 +3,7 @@ name: Python searching_tweets.py
 on:
 
   schedule:
-    - cron: '* */1 * * *'
+    - cron: '*/30 * * * *'
     
 jobs:   
   build:
