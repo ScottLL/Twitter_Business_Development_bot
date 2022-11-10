@@ -11,19 +11,9 @@ def searchTweets(query, max_results):
     Bearer_Token = os.environ['BEARER_TOKEN'] 
     Token = os.environ['TOKEN'] 
     Token_Secret = os.environ['TOKEN_SECRET'] 
-    print(len(Token_Secret), "consumer_key: ", len(consumer_key), len(consumer_secret), len(Bearer_Token), len(Token))
-#             AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
-#         AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
-#         AWS_DEFAULT_REGION: 'eu-west-1'
-
+#     print(len(Token_Secret), "consumer_key: ", len(consumer_key), len(consumer_secret), len(Bearer_Token), len(Token))
     access_key =  os.environ['aws-access-key-id']
     secret_access_key = os.environ['aws-secret-access-key']
-
-#     access_key =  'AKIAV6UJAU3DSAWHXZ75'
-#     secret_access_key = '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'
-
-
-
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(Token, Token_Secret) 
