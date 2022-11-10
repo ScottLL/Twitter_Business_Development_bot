@@ -31,8 +31,6 @@ jobs:
       env:
        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
        aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
-#        aws_key_id: ${{ secrets.AWS_KEY_ID }}
-#        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
        CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
@@ -41,7 +39,6 @@ jobs:
       run: |
         echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
         echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
-        
         echo CONSUMER_KEY: "${CONSUMER_KEY}"
         echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
