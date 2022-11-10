@@ -3,7 +3,7 @@ name: Python searching_tweets.py
 on:
 
   schedule:
-    - cron: '*/17 * * * *'
+    - cron: '* */1 * * *'
     
 jobs:   
   build:
@@ -47,7 +47,7 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        python searching_tweets.py
+        python main_old_coin.py
 
     
     
