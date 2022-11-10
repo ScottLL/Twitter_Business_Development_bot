@@ -1,7 +1,8 @@
 name: Python searching_tweets.py
 
 on:
-
+  workflow_dispatch:
+  
   schedule:
     - cron: '*/30 * * * *'
     
