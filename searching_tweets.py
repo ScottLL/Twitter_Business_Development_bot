@@ -87,6 +87,6 @@ if __name__ == '__main__':
 #     coins = ['BTC','ETH','DOGE','ADA','DAI','UNI','WBTC','LTC','LEO'] 
 #     coins = ['BTC','ETH']
     for i in coins:
-        searchTweets(i, int(324/len(coins)))
+        searchTweets(i, int(270/len(coins)))
 #         time.sleep(60*15)
 
