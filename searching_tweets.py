@@ -29,7 +29,7 @@ def searchTweets(query, max_results):
                         storage_options={'key': access_key, 'secret': secret_access_key})
     
     search_df = search_df.drop(columns=['Unnamed: 0'])
-    search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
+    search_df['created_at'] = pd.to_datetime(search_df['created_at']) #, format='%Y-%m-%d %H:%M:%S')
 
   
   
