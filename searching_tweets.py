@@ -29,7 +29,7 @@ def searchTweets(query, max_results):
                         storage_options={'key': access_key, 'secret': secret_access_key})
     
     search_df = search_df.drop(columns=['Unnamed: 0'])
-    search_df['created_at'] = pd.to_datetime(search_df['created_at']) #, format='%Y-%m-%d %H:%M:%S')
+    search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
 
   
   
@@ -73,10 +73,12 @@ def searchTweets(query, max_results):
         return "No tweets found"
 
     search_df_new = pd.DataFrame(results)
-
+    search_df_new['created_at'] = pd.to_datetime(search_df_new['created_at'], format='%Y-%m-%d %H:%M:%S')
+    
     # merge the search_df_new with the search_df base on the id
     new_df = pd.merge(search_df, search_df_new, on = ['id','created_at','author_id','text','lang','username', 'verified','url','followers_count','following_count','tweet_count'], how='outer')
-
+    new_df['created_at'] = pd.to_datetime(new_df['created_at'], format='%Y-%m-%d %H:%M:%S')
+    
     # save the dataframe to s3
     new_df.to_csv("s3://projecttwitterbot/Searching/search_df.csv",
                      storage_options={'key': access_key, 'secret': secret_access_key})
