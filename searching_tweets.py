@@ -28,6 +28,8 @@ def searchTweets(query, max_results):
     search_df = pd.read_csv('s3://projecttwitterbot/Searching/search_df.csv',
                         storage_options={'key': access_key, 'secret': secret_access_key})
     
+    search_df = search_df[search_df.created_at != "topstonks"]
+    
     search_df = search_df.drop(columns=['Unnamed: 0'])
     search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
 
