@@ -32,7 +32,9 @@ def searchTweets(query, max_results):
     
     search_df = search_df.drop(columns=['Unnamed: 0'])
     search_df['created_at'] = pd.to_datetime(search_df['created_at'], format='%Y-%m-%d %H:%M:%S')
-
+    search_df = search_df.dropna()
+    search_df = search_df.astype({"id": "int64", "verified": "bool", "author_id" : "int64","followers_count": "int64", "following_count": "int64", "tweet_count": "int64"}) 
+    
   
   
     tweets = client.search_recent_tweets(query=query,
@@ -76,6 +78,8 @@ def searchTweets(query, max_results):
 
     search_df_new = pd.DataFrame(results)
     search_df_new['created_at'] = pd.to_datetime(search_df_new['created_at'], format='%Y-%m-%d %H:%M:%S')
+    
+    
     
     # merge the search_df_new with the search_df base on the id
     new_df = pd.merge(search_df, search_df_new, on = ['id','created_at','author_id','text','lang','username', 'verified','url','followers_count','following_count','tweet_count'], how='outer')
