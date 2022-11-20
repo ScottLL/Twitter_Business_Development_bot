@@ -60,7 +60,6 @@ def searchTweets(query, max_results):
             obj['text'] = tweet.text
             obj['lang'] = tweet.lang
             # obj['entities'] = tweet.entities
-            print(twt)
             obj['username'] = twt.includes['users'][0].username
             if user[tweet.author_id]:
                 user1 = user[tweet.author_id]
