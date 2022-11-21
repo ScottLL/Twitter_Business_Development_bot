@@ -6,7 +6,7 @@ from tweepy.auth import OAuthHandler
 import os
 
 
-def retwitter_content_bot(event, context):
+def retwitter_content_bot():
 
     consumer_key = os.environ['CONSUMER_KEY']
     consumer_secret = os.environ['CONSUMER_SECRET']
