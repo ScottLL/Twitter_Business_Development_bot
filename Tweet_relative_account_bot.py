@@ -29,8 +29,9 @@ def twitter_account_bot():
 
                 except twitter.TweepyException as error:
                     print(error)
-            delay = 30
-            time.sleep(delay)
+                finally:
+                    delay = 30
+                    time.sleep(delay)
             
             
 # if __name__ in "__main__":
