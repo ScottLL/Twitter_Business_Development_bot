@@ -15,7 +15,7 @@ def twitter_account_bot():
 
     while True:
         print(f"\n{datetime.datetime.now()}\n")
-        user_name = ['MEXC_Global', 'MEXC_Eilla','MEXC_VIP','MEXCDerivatives','EtfMexc','MEXC_SEA','MEXC_Fans','MEXC_CEO',"OSMO",'crypto', "BTC","elonmusk"]
+        user_name = ['MEXC_Global', 'MEXC_Eilla','MEXC_VIP','MEXCDerivatives','EtfMexc','MEXC_SEA','MEXC_Fans','MEXC_CEO']
         for i in range(len(user_name)):
             var = twitter.Cursor(api.search_tweets, q = user_name[i], count = 20, result_type = "popular").items(10)
             for tweet in var:
@@ -30,12 +30,9 @@ def twitter_account_bot():
 
                 except twitter.TweepyException as error:
                     print(error)
-                finally:
-                    delay = 30
-                    time.sleep(delay)
+                
+            delay = 30
+            time.sleep(delay)
             
             
-# if __name__ in "__main__":
-#     user_name = ['MEXC_Global', 'MEXC_Eilla','MEXC_VIP','MEXCDerivatives','EtfMexc','MEXC_SEA','MEXC_Fans','MEXC_CEO']
-#     for i in range(len(user_name)):
-#         twitter_account_bot(i)
+
