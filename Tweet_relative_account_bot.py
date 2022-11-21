@@ -2,7 +2,7 @@ import base64
 import tweepy as twitter
 import time, datetime
 
-def twitter_account_bot(user_name):
+def twitter_account_bot():
     consumer_key = os.environ['CONSUMER_KEY']
     consumer_secret = os.environ['CONSUMER_SECRET']
     Bearer_Token = os.environ['BEARER_TOKEN'] 
