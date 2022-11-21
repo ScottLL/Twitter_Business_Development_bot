@@ -15,9 +15,9 @@ def twitter_account_bot():
 
     while True:
         print(f"\n{datetime.datetime.now()}\n")
-        user_name = ['MEXC_Global', 'MEXC_Eilla','MEXC_VIP','MEXCDerivatives','EtfMexc','MEXC_SEA','MEXC_Fans','MEXC_CEO']
+        user_name = ['MEXC_Global', 'MEXC_Eilla','MEXC_VIP','MEXCDerivatives','EtfMexc','MEXC_SEA','MEXC_Fans','MEXC_CEO',"OSMO",'crypto', "BTC","elonmusk"]
         for i in range(len(user_name)):
-            var = twitter.Cursor(api.search_tweets, q = user_name[i], count = 10).items(5)
+            var = twitter.Cursor(api.search_tweets, q = user_name[i], count = 20, result_type = "popular").items(10)
             for tweet in var:
                 try: 
                     tweet_id = dict(tweet._json)['id']
