@@ -14,21 +14,21 @@ def twitter_account_bot(user_name):
     api = twitter.API(auth)
 
     while True:
-        print(f"\n{datetime.datetime.now()}\n")
-          for tweet in twitter.Cursor(api.search_tweets, q = user_name, count = 10).items(5):
-              try: 
-                  tweet_id = dict(tweet._json)['id']
-                  tweet_text = dict(tweet._json)['text']
+      print(f"\n{datetime.datetime.now()}\n")
+      for tweet in twitter.Cursor(api.search_tweets, q = user_name, count = 10).items(5):
+          try: 
+              tweet_id = dict(tweet._json)['id']
+              tweet_text = dict(tweet._json)['text']
 
-                  print('id: ' + str(tweet_id))
-                  print('text: ' + str(tweet_text))
+              print('id: ' + str(tweet_id))
+              print('text: ' + str(tweet_text))
 
-                  api.retweet(tweet_id)
+              api.retweet(tweet_id)
 
-              except twitter.TweepyException as error:
-                  print(error)
-          delay = 30
-          time.sleep(delay)
+          except twitter.TweepyException as error:
+              print(error)
+      delay = 30
+      time.sleep(delay)
             
             
 if __name__ in "__main__":
