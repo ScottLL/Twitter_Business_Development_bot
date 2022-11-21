@@ -48,3 +48,7 @@ def retwitter_content_bot():
 
     else:
         wks.delete_rows(3)
+        
+if __name__ in '__main__':
+    
+    retwitter_content_bot()
