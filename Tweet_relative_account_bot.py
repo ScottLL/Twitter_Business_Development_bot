@@ -22,38 +22,38 @@ def twitter_account_bot():
     timeout_start = time.time()
 
     while time.time() < timeout_start + timeout:
-            while True:
-                print(f"\n{datetime.datetime.now()}\n")
-                user_name = [
-                    "MEXC_Global",
-                    "MEXC_Eilla",
-                    "MEXC_VIP",
-                    "MEXCDerivatives",
-                    "EtfMexc",
-                    "MEXC_SEA",
-                    "MEXC_Fans",
-                    "MEXC_CEO",
-                ]
-                for i in range(len(user_name)):
-                    var = tweepy.Cursor(
-                        api.search_tweets, q=user_name[i], count=20, result_type="popular"
-                    ).items(10)
-                    for tweet in var:
-                        try:
-                            tweet_id = dict(tweet._json)["id"]
-                            tweet_text = dict(tweet._json)["text"]
+#             while True:
+            print(f"\n{datetime.datetime.now()}\n")
+            user_name = [
+                "MEXC_Global",
+                "MEXC_Eilla",
+                "MEXC_VIP",
+                "MEXCDerivatives",
+                "EtfMexc",
+                "MEXC_SEA",
+                "MEXC_Fans",
+                "MEXC_CEO",
+            ]
+            for i in range(len(user_name)):
+                var = tweepy.Cursor(
+                    api.search_tweets, q=user_name[i], count=20, result_type="popular"
+                ).items(10)
+                for tweet in var:
+                    try:
+                        tweet_id = dict(tweet._json)["id"]
+                        tweet_text = dict(tweet._json)["text"]
 
-                            print("id: " + str(tweet_id))
-                            print("text: " + str(tweet_text))
+                        print("id: " + str(tweet_id))
+                        print("text: " + str(tweet_text))
 
-                            api.retweet(tweet_id)
+                        api.retweet(tweet_id)
 
-                        except tweepy.TweepyException as error:
-                            print(error)
+                    except tweepy.TweepyException as error:
+                        print(error)
 
-                    delay = 30
-                    time.sleep(delay)
-            break
+                delay = 3
+                time.sleep(delay)
+        break
             
 if __name__ in "__main__":
     twitter_account_bot()
