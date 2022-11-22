@@ -45,3 +45,6 @@ def twitter_account_bot():
 
             delay = 30
             time.sleep(delay)
+            
+if __name__ in "__main__":
+    twitter_account_bot()
