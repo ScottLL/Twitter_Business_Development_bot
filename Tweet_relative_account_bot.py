@@ -22,7 +22,6 @@ def twitter_account_bot():
     timeout_start = time.time()
 
     while time.time() < timeout_start + timeout:
-#             while True:
             print(f"\n{datetime.datetime.now()}\n")
             user_name = [
                 "MEXC_Global",
@@ -53,7 +52,7 @@ def twitter_account_bot():
 
                 delay = 3
                 time.sleep(delay)
-        break
+            break
             
 if __name__ in "__main__":
     twitter_account_bot()
