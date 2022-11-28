@@ -38,7 +38,6 @@ def searchTweets(query, max_results):
     search_df["created_at"] = pd.to_datetime(
        search_df["created_at"], format="%Y-%m-%d %H:%M:%S",
         errors='coerce')
-    search_df = search_df.dropna('created_at')
 
     search_df = search_df.dropna()
     search_df = search_df.astype(
