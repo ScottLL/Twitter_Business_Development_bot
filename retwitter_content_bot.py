@@ -12,8 +12,9 @@ def retwitter_content_bot():
     consumer_secret = os.environ["CONSUMER_SECRET"]
     token = os.environ["TOKEN"]
     token_secret = os.environ["TOKEN_SECRET"]
-    GOOGLE_SERVICE_ACCOUNT_DATA = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_DATA"])
-    print(os.environ["GOOGLE_SERVICE_ACCOUNT_DATA"])
+    GOOGLE_SERVICE_ACCOUNT_DATA = os.environ["GOOGLE_SERVICE_ACCOUNT_DATA"]
+    GOOGLE_SERVICE_ACCOUNT_DATA_credentials = json.loads(GOOGLE_SERVICE_ACCOUNT_DATA)
+  
     t = Twitter(auth=OAuth(token, token_secret, consumer_key, consumer_secret))
 
     auth = OAuthHandler(consumer_key, consumer_secret)
@@ -21,7 +22,7 @@ def retwitter_content_bot():
     api = tweepy.API(auth)
 
     # Open a sheet from a spreadsheet i
-    gc = gspread.service_account_from_dict(GOOGLE_SERVICE_ACCOUNT_DATA)
+    gc = gspread.service_account_from_dict(GOOGLE_SERVICE_ACCOUNT_DATA_credentials)
     wks = gc.open("retweet_bot").sheet1
 
     # Update a range of cells using the top left corner address
