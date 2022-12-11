@@ -42,12 +42,13 @@ jobs:
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
        GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
       run: |
-        echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-        echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
-        echo CONSUMER_KEY: "${CONSUMER_KEY}"
-        echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
-        echo BEARER_TOKEN: "${BEARER_TOKEN}"
-        echo TOKEN: "${TOKEN}"
-        echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        echo GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
         python retwitter_content_bot.py
+#         echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+#         echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
+#         echo CONSUMER_KEY: "${CONSUMER_KEY}"
+#         echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
+#         echo BEARER_TOKEN: "${BEARER_TOKEN}"
+#         echo TOKEN: "${TOKEN}"
+#         echo TOKEN_SECRET: "${TOKEN_SECRET}"
+#         echo GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
+        
