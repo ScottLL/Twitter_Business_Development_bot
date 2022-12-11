@@ -12,7 +12,7 @@ def retwitter_content_bot():
     consumer_secret = os.environ["CONSUMER_SECRET"]
     token = os.environ["TOKEN"]
     token_secret = os.environ["TOKEN_SECRET"]
-    google-api-service-account-credentials = os.environ["GOOGLE_SERVICE_ACCOUNT_DATA"]
+    GOOGLE_SERVICE_ACCOUNT_DATA = os.environ["google-api-service-account-credentials"]
     GOOGLE_SERVICE_ACCOUNT_DATA_credentials = json.loads(GOOGLE_SERVICE_ACCOUNT_DATA)
   
     t = Twitter(auth=OAuth(token, token_secret, consumer_key, consumer_secret))
