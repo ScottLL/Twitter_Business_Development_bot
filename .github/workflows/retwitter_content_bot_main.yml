@@ -40,7 +40,7 @@ jobs:
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
-       GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
+       google-api-service-account-credentials: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
       run: |
         echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
         echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
@@ -49,6 +49,6 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        echo GOOGLE_SERVICE_ACCOUNT_DATA: "${ GOOGLE_SERVICE_ACCOUNT_DATA }"
+        echo google-api-service-account-credentials: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
         python retwitter_content_bot.py
         
