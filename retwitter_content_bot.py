@@ -13,6 +13,7 @@ def retwitter_content_bot():
     token = os.environ["TOKEN"]
     token_secret = os.environ["TOKEN_SECRET"]
     GOOGLE_SERVICE_ACCOUNT_DATA = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_DATA"])
+    print(os.environ["GOOGLE_SERVICE_ACCOUNT_DATA"])
     t = Twitter(auth=OAuth(token, token_secret, consumer_key, consumer_secret))
 
     auth = OAuthHandler(consumer_key, consumer_secret)
