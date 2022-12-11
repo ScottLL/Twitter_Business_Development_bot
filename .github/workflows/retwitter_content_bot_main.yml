@@ -17,7 +17,7 @@ jobs:
       with:
         python-version: 3.10.8
         args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
-        google-api-service-account-credentials: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
+
 #       env:
 #         aws_key_id: ${{ secrets.AWS_KEY_ID }}
 #         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
@@ -32,6 +32,17 @@ jobs:
       run: |
         make install
     
+    - name: Decrypt Google credentials.json
+      env:
+        GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
+      run: |
+        mkdir $GITHUB_WORKSPACE/secrets
+        # --batch to prevent interactive command
+        # --yes to assume "yes" for questions
+        gpg --quiet --batch --yes --decrypt --passphrase="$GOOGLE_SERVICE_ACCOUNT_DATA" \
+        --output $GITHUB_WORKSPACE/secrets/credentials.json credentials.json.gpg
+    
+    
     - name: run python
       env:
        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
@@ -41,7 +52,6 @@ jobs:
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
-       google-api-service-account-credentials: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
       run: |
         echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
         echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
@@ -50,7 +60,5 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        echo google-api-service-account-credentials: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
-        
         python retwitter_content_bot.py
         
