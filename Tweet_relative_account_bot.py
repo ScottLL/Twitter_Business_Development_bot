@@ -43,5 +43,5 @@ def twitter_account_bot():
                 except tweepy.TweepyException as error:
                     print(error)
 
-            delay = 30
-            time.sleep(delay)
+                delay = 30
+                time.sleep(delay)

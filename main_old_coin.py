@@ -20,3 +20,5 @@ coins = [
 #     coins = ['BTC','ETH']
 for i in coins:
     searchTweets(i, int(250 / len(coins)))
+    # print(new_df.tail())
+print("Done")

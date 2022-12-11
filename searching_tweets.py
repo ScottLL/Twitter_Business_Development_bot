@@ -2,7 +2,7 @@ import tweepy
 import pandas as pd
 import os
 import time
-
+from smart_open import smart_open
 
 def searchTweets(query, max_results):
     consumer_key = os.environ["CONSUMER_KEY"]
@@ -11,8 +11,8 @@ def searchTweets(query, max_results):
     Token = os.environ["TOKEN"]
     Token_Secret = os.environ["TOKEN_SECRET"]
     #     print(len(Token_Secret), "consumer_key: ", len(consumer_key), len(consumer_secret), len(Bearer_Token), len(Token))
-    access_key = os.environ["aws-access-key-id"]
-    secret_access_key = os.environ["aws-secret-access-key"]
+    access_key = os.environ["AWS_ACCESS_KEY_ID"]
+    secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(Token, Token_Secret)
@@ -26,17 +26,17 @@ def searchTweets(query, max_results):
     )
     client = getClient
 
-    search_df = pd.read_csv(
-        "s3://projecttwitterbot/Searching/search_df.csv",
-        storage_options={"key": access_key, "secret": secret_access_key},
-    )
+    search_df = pd.read_csv(smart_open('s3://projecttwitterbot/Searching/search_df.csv'), lineterminator='\n')
 
     search_df = search_df[search_df.created_at != "topstonks"]
 
     search_df = search_df.drop(columns=["Unnamed: 0"])
     search_df["created_at"] = pd.to_datetime(
-        search_df["created_at"], format="%Y-%m-%d %H:%M:%S"
+        search_df["created_at"], format="%Y-%m-%d %H:%M:%S",
+        errors = "coerce"
     )
+    # search_df = search_df.dropna('created_at')
+
     search_df = search_df.dropna()
     search_df = search_df.astype(
         {
@@ -140,12 +140,10 @@ def searchTweets(query, max_results):
     new_df["created_at"] = pd.to_datetime(
         new_df["created_at"], format="%Y-%m-%d %H:%M:%S"
     )
-
     # save the dataframe to s3
     new_df.to_csv(
         "s3://projecttwitterbot/Searching/search_df.csv",
-        storage_options={"key": access_key, "secret": secret_access_key},
-    )
+        storage_options={"key": access_key, "secret": secret_access_key})
     return new_df
 
 
