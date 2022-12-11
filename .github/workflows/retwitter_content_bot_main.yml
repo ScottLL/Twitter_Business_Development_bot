@@ -49,6 +49,6 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        echo GOOGLE_SERVICE_ACCOUNT_DATA: ${secrets.GOOGLE_SERVICE_ACCOUNT_DATA}
+        echo GOOGLE_SERVICE_ACCOUNT_DATA: ${ GOOGLE_SERVICE_ACCOUNT_DATA }
         python retwitter_content_bot.py
         
