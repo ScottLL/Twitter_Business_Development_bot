@@ -31,14 +31,16 @@ jobs:
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
+       
+#         echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+#         echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
+#         echo CONSUMER_KEY: "${CONSUMER_KEY}"
+#         echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
+#         echo BEARER_TOKEN: "${BEARER_TOKEN}"
+#         echo TOKEN: "${TOKEN}"
+#         echo TOKEN_SECRET: "${TOKEN_SECRET}"
+       
       run: |
-        echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
-        echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
-        echo CONSUMER_KEY: "${CONSUMER_KEY}"
-        echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
-        echo BEARER_TOKEN: "${BEARER_TOKEN}"
-        echo TOKEN: "${TOKEN}"
-        echo TOKEN_SECRET: "${TOKEN_SECRET}"
         python main_old_coin.py
 
     
