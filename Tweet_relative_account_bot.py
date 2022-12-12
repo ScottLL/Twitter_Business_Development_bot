@@ -18,8 +18,9 @@ def twitter_account_bot():
     timeout = 300   # [seconds]
 
     timeout_start = time.time()
-                delay = 30
-                time.sleep(delay)
+    delay = 30
+    time.sleep(delay)
+    
     while time.time() < timeout_start + timeout:
             print(f"\n{datetime.datetime.now()}\n")
             user_name = [
