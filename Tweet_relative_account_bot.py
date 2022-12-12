@@ -14,17 +14,12 @@ def twitter_account_bot():
     auth.set_access_token(token, token_secret)
     api = tweepy.API(auth)
 
-
-
     # timeout variable can be omitted, if you use specific value in the while condition
     timeout = 300   # [seconds]
 
     timeout_start = time.time()
-
-<<<<<<< HEAD
                 delay = 30
                 time.sleep(delay)
-=======
     while time.time() < timeout_start + timeout:
             print(f"\n{datetime.datetime.now()}\n")
             user_name = [
@@ -60,4 +55,3 @@ def twitter_account_bot():
             
 if __name__ in "__main__":
     twitter_account_bot()
->>>>>>> f3853a37960f7cf66325d4059d936c20f2cf5cc2
