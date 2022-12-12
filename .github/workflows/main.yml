@@ -31,6 +31,9 @@ jobs:
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
+       
+
+       
       run: |
         echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
         echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
