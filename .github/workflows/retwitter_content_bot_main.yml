@@ -31,22 +31,12 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    
-    - name: Decrypt Google credentials.json
-      env:
-        GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
-      run: |
-        mkdir $GITHUB_WORKSPACE/secrets
-        # --batch to prevent interactive command
-        # --yes to assume "yes" for questions
-        gpg --quiet --batch --yes --decrypt --passphrase="$GOOGLE_SERVICE_ACCOUNT_DATA" \
-        --output $GITHUB_WORKSPACE/secrets/credentials.json credentials.json.gpg
-    
-    
+  
     - name: run python
       env:
        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
        aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+       GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
        CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
@@ -55,6 +45,7 @@ jobs:
       run: |
         echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
         echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
+        echo GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
         echo CONSUMER_KEY: "${CONSUMER_KEY}"
         echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
