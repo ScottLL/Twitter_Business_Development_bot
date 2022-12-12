@@ -43,6 +43,7 @@ jobs:
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
       run: |
+        echo $PATH
         echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
         echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
         echo GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
