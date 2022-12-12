@@ -44,6 +44,7 @@ jobs:
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
       run: |
         echo $PATH
+        cat /home/runner/work/_temp/061592c0-a6f7-4a7f-815b-25151154d9a7.sh
         echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
         echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
         echo GOOGLE_SERVICE_ACCOUNT_DATA: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_DATA }}
