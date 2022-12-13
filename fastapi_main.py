@@ -1,9 +1,6 @@
 from searching_tweets import searchTweets
-from fastapi import FastAPI, Form
-from fastapi.responses import StreamingResponse
+from fastapi import FastAPI
 import uvicorn
-from fastapi import Query
-from typing import List, Union
 from direct_messages import direct_messages
 from newsApp.News_post import news_post
 from newsApp.News_df import news_df
