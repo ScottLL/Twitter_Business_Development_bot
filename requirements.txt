@@ -101,4 +101,9 @@ wheel==0.36.2
 widgetsnbextension==3.6.1
 zipp==3.8.1
 smart_open==5.2.1
+<<<<<<< HEAD
 deepl
+=======
+smart_open[s3]
+
+>>>>>>> f6666654b8fab5fe6d28a77e73372a7641f6d3c5
