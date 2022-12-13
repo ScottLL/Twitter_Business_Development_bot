@@ -4,7 +4,7 @@ import os
 import time
 from smart_open import smart_open
 
-def searchTweets(query, max_results):
+def searchTweets(query):
     max_results = int(250/len(query))
     consumer_key = os.environ["CONSUMER_KEY"]
     consumer_secret = os.environ["CONSUMER_SECRET"]
