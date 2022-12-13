@@ -4,8 +4,8 @@ import os
 import time
 from smart_open import smart_open
 
-def searchTweets(query):
-    max_results = int(250/len(query))
+def searchTweets(query, max_results):
+    
     consumer_key = os.environ["CONSUMER_KEY"]
     consumer_secret = os.environ["CONSUMER_SECRET"]
     Bearer_Token = os.environ["BEARER_TOKEN"]
@@ -79,7 +79,7 @@ def searchTweets(query):
             "url",
             "public_metrics",
         ],
-        max_results=max_results,
+        max_results = max_results)
     )
 
     user = {u["id"]: u for u in tweets.includes["users"]}
