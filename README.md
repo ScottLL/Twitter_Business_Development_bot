@@ -5,6 +5,8 @@
 
 [![Python newsApp/News_df.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_searching_bot.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_searching_bot.yml)
 
+[![Python newsApp/News_post.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_post.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_post.yml)
+
 [![Python Tweet_relative_account_bot.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/Tweet_relative_account_bot_main.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/Tweet_relative_account_bot_main.yml)
 
 
