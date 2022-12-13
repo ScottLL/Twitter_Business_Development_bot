@@ -5,6 +5,7 @@ import time
 from smart_open import smart_open
 
 def searchTweets(query, max_results):
+    max_results = int(250/len(query))
     consumer_key = os.environ["CONSUMER_KEY"]
     consumer_secret = os.environ["CONSUMER_SECRET"]
     Bearer_Token = os.environ["BEARER_TOKEN"]
@@ -146,10 +147,3 @@ def searchTweets(query, max_results):
     return new_df
 
 
-# if __name__ == '__main__':
-# #     coins = ['BTC','ETH','DOGE','ADA','BNB','XRP','SOL','MATIC','DOT','STETH','SHIB','TRX','DAI','UNI','WBTC','LTC','LEO','OKB','ATOM','LINK','FTT','XLM','CRO','XMR','ALGO','NEAR','TON']
-# #     coins = ['BTC','ETH','DOGE','ADA','DAI','UNI','WBTC','LTC','LEO','FTT','ALGO','NEAR','TON']
-#     coins = ['BTC','ETH']
-#     for i in coins:
-#         searchTweets(i, int(50/len(coins)))
-# #         time.sleep(60*15)
