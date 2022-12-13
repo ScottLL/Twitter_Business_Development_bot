@@ -79,7 +79,7 @@ def searchTweets(query, max_results):
             "url",
             "public_metrics",
         ],
-        max_results = max_results)
+        max_results = max_results
     )
 
     user = {u["id"]: u for u in tweets.includes["users"]}
