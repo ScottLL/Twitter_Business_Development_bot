@@ -25,12 +25,12 @@ jobs:
   
     - name: run python
       env:
-       aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-       aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+       AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+       AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
        CRYPTOPANIC_API_KEY: ${{ secrets.CRYPTOPANIC_API_KEY }}
       run: |
-        echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-        echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
+        echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
         echo CRYPTOPANIC_API_KEY: ${{ secrets.CRYPTOPANIC_API_KEY }}
         python newsApp/News_df.py
         
