@@ -4,6 +4,8 @@ Use Wrapper to make calls and get data.
 Format data for streaming input and monitoring.
 Historical Data seems to be limited to 12/24/2018 but there is no Documentation.
 """
+import sys
+sys.path.append("..")
 import newsApp.news_api_gather as news_api_gather
 import pandas as pd
 from datetime import datetime

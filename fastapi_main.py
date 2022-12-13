@@ -1,10 +1,10 @@
-from searching_tweets import searchTweets
+from SearchingTwitters.searching_tweets import searchTweets
 from fastapi import FastAPI
 import uvicorn
-from direct_messages import direct_messages
+from directMessage.direct_messages import direct_messages
 from newsApp.News_post import news_post
 from newsApp.News_df import news_df
-from Tweet_relative_account_bot  import twitter_account_bot
+from twitterPost.Tweet_relative_account_bot  import twitter_account_bot
 
 app = FastAPI()
 
