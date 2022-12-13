@@ -27,5 +27,40 @@ The project is for IDS 706 Data Engineering class at Duke University. The goal i
 
 
 ## Sample Output
+### Official Twitter Account Bot
 
-11
+#### 1. Build twitter_account_bot() function at Tweet_relative_account_bot.py
+
+* Company: MEXC Global is a centralized exchange that employs a high-performance mega-transaction matching technology. The CEX platform is run by a team of professionals with extensive financial industries and blockchain technology experience. Currently, MEXC Global has around 5 million users in more than 70 countries around the world.
+
+<img width="1478" alt="Screen Shot 2022-12-13 at 10 43 23 AM" src="https://user-images.githubusercontent.com/112274822/207389323-3c41aaaa-85b0-4861-a2db-69727e121a84.png">
+<img width="1428" alt="Screen Shot 2022-12-13 at 10 44 27 AM" src="https://user-images.githubusercontent.com/112274822/207389372-d93c45f5-e1af-404f-baaf-16c8486eb428.png">
+
+* Goal: Let all official accounts of MEXC automatically post transaction information, knowledge and news related to crypt currency on Twitter. The built-in function automatic update time of this bot is once every 5 minutes.
+
+<img width="585" alt="Screen Shot 2022-12-13 at 11 01 39 AM" src="https://user-images.githubusercontent.com/112274822/207389497-57113ff3-694e-4f30-8ae0-ea26294b20ae.png">
+
+* Main target official accounts: "MEXC_Global", "MEXC_Eilla", "MEXC_VIP", "MEXCDerivatives", "EtfMexc", "MEXC_SEA", "MEXC_Fans", and "MEXC_CEO".
+
+<img width="557" alt="Screen Shot 2022-12-13 at 11 01 48 AM" src="https://user-images.githubusercontent.com/112274822/207389592-36a98d88-2956-4ce4-9eb6-5d9fcb69472b.png">
+
+* Some examples of the results after running twitter_account_bot():
+
+<img width="394" alt="Screen Shot 2022-12-13 at 10 48 12 AM" src="https://user-images.githubusercontent.com/112274822/207389651-a18a4c64-3f4f-40b9-b406-ace8d93a7e0b.png">
+<img width="410" alt="Screen Shot 2022-12-13 at 10 46 05 AM" src="https://user-images.githubusercontent.com/112274822/207389656-9b6fa631-ef56-4d06-a9c0-b52f50407e78.png">
+<img width="391" alt="Screen Shot 2022-12-13 at 10 47 17 AM" src="https://user-images.githubusercontent.com/112274822/207389662-abdbfa18-31bf-44ad-a4c6-03bb0f49a8bc.png">
+
+#### 2. Test Tweet_relative_account_bot.py functions
+
+* Go to the homepage of the repository, click the button "Actions", and choose "set up a workflow yourself".
+
+<img width="674" alt="Screen Shot 2022-12-13 at 11 21 29 AM" src="https://user-images.githubusercontent.com/112274822/207389775-23c1598a-70bb-4976-9514-50af186c71e8.png">
+
+* Name it as "Tweet_relative_account_bot_main.yml", type the code you need, then click the green button "start commit".
+
+<img width="519" alt="Screen Shot 2022-12-13 at 10 50 23 AM" src="https://user-images.githubusercontent.com/112274822/207389894-85da0901-ab52-4ec8-8c84-c257c69efaeb.png">
+
+*  Once complete these steps, you can check the status of your workflows from "Actions" page, so make sure your program could pass the tests. Otherwise, you need to fix the code where the bugs/errors are reported.
+*  Eg. Check out the code for issues:
+
+<img width="1125" alt="Screen Shot 2022-12-13 at 11 25 00 AM" src="https://user-images.githubusercontent.com/112274822/207389737-e1313267-474e-423c-b3f3-22aa9fec5a80.png">
