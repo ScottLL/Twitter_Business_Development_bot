@@ -1,10 +1,10 @@
-name: Python main_new_coin.py
+name: Python twitterPost/main_new_coin.py
 
 on:
   workflow_dispatch:
   
-#   schedule:
-#    - cron: '0 1,8,13,20 * * *'
+  schedule:
+   - cron: '0 1,20 * * *'
     
 jobs:   
   build:
@@ -39,7 +39,7 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        python main_new_coin.py
+        python twitterPost/main_new_coin.py
 
     
     
