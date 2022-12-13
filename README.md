@@ -1,7 +1,7 @@
 # Twitter_Bots
 [![Python main_new_coin.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main_new_coin.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main_new_coin.yml)
 
-[![Python main_old_coin.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main.yml)
+[![Python main_old_coin.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main_old_coin.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main_old_coin.yml)
 
 [![Python newsApp/News_df.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_searching_bot.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_searching_bot.yml)
 
