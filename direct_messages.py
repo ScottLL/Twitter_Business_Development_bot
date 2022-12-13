@@ -24,7 +24,7 @@ def direct_messages(message):
     sort_df = sort_df.reset_index()
     # print(sort_df.tail(10))
     user_id = []
-    for i in range(len(sort_df[250:500])):  #len(sort_df)):[300:550]
+    for i in range(len(sort_df[-250:-1])):  #len(sort_df)):[300:550]
         try:
             user = int(api.get_user(screen_name=sort_df.username[i]).id_str) # get the user id
             last_dms = user in user_id_dataFrame['user_id'].unique() # check if the user id is already in the user_id.csv
