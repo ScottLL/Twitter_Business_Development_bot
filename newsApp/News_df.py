@@ -9,26 +9,28 @@ import pandas as pd
 from datetime import datetime
 import os
 
+def news_df():
+    access_key = os.environ["AWS_ACCESS_KEY_ID"]
+    secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
 
-access_key = os.environ["AWS_ACCESS_KEY_ID"]
-secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
+    url_everything = news_api_gather.make_url(filter='hot')
+    everything_pages_last_100 = news_api_gather.get_pages_list_json(9, url_everything)
 
-url_everything = news_api_gather.make_url(filter='hot')
-everything_pages_last_100 = news_api_gather.get_pages_list_json(9, url_everything)
+    everything_pages_last_100_results = []
+    for page in everything_pages_last_100:
+        everything_pages_last_100_results.append(page['results'])
+    df_results = news_api_gather.concatenate_pages(everything_pages_last_100_results)
 
-everything_pages_last_100_results = []
-for page in everything_pages_last_100:
-    everything_pages_last_100_results.append(page['results'])
-df_results = news_api_gather.concatenate_pages(everything_pages_last_100_results)
+    df_results = pd.DataFrame(df_results)
+    df_results = df_results[['votes','title', "url",'created_at',"id"]]
+    df_results['important'] = df_results['votes'].apply(lambda x: x.get('important'))
+    df_results['positive'] = df_results['votes'].apply(lambda x: x.get('positive'))
+    df_results['negative'] = df_results['votes'].apply(lambda x: x.get('negative'))
+    df_results_important = df_results.loc[(df_results['important'] >= 10) & (df_results['positive'] > df_results['negative'])]
 
-df_results = pd.DataFrame(df_results)
-df_results = df_results[['votes','title', "url",'created_at',"id"]]
-df_results['important'] = df_results['votes'].apply(lambda x: x.get('important'))
-df_results['positive'] = df_results['votes'].apply(lambda x: x.get('positive'))
-df_results['negative'] = df_results['votes'].apply(lambda x: x.get('negative'))
-df_results_important = df_results.loc[(df_results['important'] >= 10) & (df_results['positive'] > df_results['negative'])]
+    df_results_important.to_csv(
+        "s3://projecttwitterbot/emotion/news_emotion.csv",
+        storage_options={"key": access_key, "secret": secret_access_key})
+    
 
-df_results_important.to_csv(
-    "s3://projecttwitterbot/emotion/news_emotion.csv",
-    storage_options={"key": access_key, "secret": secret_access_key})
 
