@@ -1,4 +1,4 @@
-name: Python Tweet_relative_account_bot.py
+name: Python twitterPost/Tweet_relative_account_bot.py
 
 on:
   workflow_dispatch:
@@ -48,4 +48,4 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        python Tweet_relative_account_bot.py
+        python twitterPost/Tweet_relative_account_bot.py
