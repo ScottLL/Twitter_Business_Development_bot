@@ -25,16 +25,16 @@ jobs:
   
     - name: run python
       env:
-       aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-       aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+       AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+       AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
        CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
       run: |
-        echo aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-        echo aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
+        echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
         echo CONSUMER_KEY: "${CONSUMER_KEY}"
         echo CONSUMER_SECRET: "${CONSUMER_SECRET}"
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
