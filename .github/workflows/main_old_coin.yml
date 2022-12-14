@@ -41,7 +41,7 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        python twitterPost/main_old_coin.py
+        python main_old_coin.py
 
     
     
