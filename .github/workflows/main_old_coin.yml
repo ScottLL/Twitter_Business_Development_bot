@@ -1,4 +1,4 @@
-name: Python twitterPost/main_old_coin.py
+name: Python main_old_coin.py
 
 on:
   workflow_dispatch:
