@@ -26,7 +26,7 @@ def news_post():
         news_text = news['title'][i]
         news_path = news['url'][i]
         last_news_post = int(news['id'][i]) in news_id['id'].unique() # check if the user id is already in the user_id.csv
-        if last_news_post == False:
+        if last_news_post is False:
 
             # sent news to twitter 
             text = news_text + " " + news_path
