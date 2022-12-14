@@ -19,7 +19,6 @@ jobs:
         args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
 
     - name: Install dependencies
-      working-directory: ./twitterPost
       run: |
         make install
     
