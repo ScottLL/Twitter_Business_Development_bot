@@ -1,4 +1,4 @@
-name: Python twitterPost/main_new_coin.py
+name: Python main_new_coin.py
 
 on:
   workflow_dispatch:
@@ -31,7 +31,9 @@ jobs:
        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
+      working-directory: ./twitterPost
       run: |
+        
         echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
         echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
         echo CONSUMER_KEY: "${CONSUMER_KEY}"
@@ -39,7 +41,7 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        python twitterPost/main_new_coin.py
+        python main_new_coin.py
 
     
     
