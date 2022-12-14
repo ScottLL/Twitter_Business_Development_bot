@@ -33,7 +33,7 @@ This project is sponsored by MEXC Global exchange, so we are run the bot with ME
 
 `searching_tweets.py`: searches for tweets every 15 minutes and adds new tweets to a csv file stored in an AWS S3 bucket.
 
-`direct_messages.py`: sends 500 messages per day to English speaking twitter influencers with more than 300 and less than 20,000 followers, using information in the .csv file from AWS S3 bucket.
+`direct_messages.py`: sends 500 messages per day to twitter influencers with more than 300 and less than 20,000 followers, using information in the .csv file from AWS S3 bucket.
 
 `tweet_relative_account_bot.py`: retweets content based on popularity every 15 minutes.
 
@@ -45,4 +45,4 @@ This project is sponsored by MEXC Global exchange, so we are run the bot with ME
 
 
 ## Demo Video
-[Group Project - Twitter Bots]()
+[Twitter Bots for Business Development](https://youtu.be/DA69OHjqZ10)
