@@ -1,5 +1,5 @@
 import sys
-sys.path.append("..")
+sys.path.append("../")
 
 from SearchingTwitters.searching_tweets import searchTweets
 
