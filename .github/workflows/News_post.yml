@@ -1,4 +1,4 @@
-name: Python newsApp/News_post.py
+name: Python News_post.py
 
 on:
   workflow_dispatch:
@@ -20,10 +20,12 @@ jobs:
 
 
     - name: Install dependencies
+      working-directory: ./newsApp
       run: |
         make install
   
     - name: run python
+      working-directory: ./newsApp
       env:
        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
@@ -40,5 +42,5 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        python newsApp/News_post.py
+        python News_post.py
         
