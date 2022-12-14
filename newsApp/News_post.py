@@ -18,30 +18,38 @@ def news_post():
     news_id = pd.read_csv(smart_open("s3://projecttwitterbot/emotion/send_news_id.csv"), lineterminator='\n')
     news = pd.read_csv(smart_open("s3://projecttwitterbot/emotion/news_emotion.csv"), lineterminator='\n')
     news = news.dropna()
-    
     news_id = news_id.dropna()
     send_news = []
     
-    for i in range(len(news[0:2])):
-        news_text = news['title'][i]
-        news_path = news['url'][i]
-        last_news_post = int(news['id'][i]) in news_id['id'].unique() # check if the user id is already in the user_id.csv
-        if last_news_post == False:
-
-            # sent news to twitter 
+    for i in range(len(news[0:20])):
+        try:
+            news_text = news['title'][i]
+            news_path = news['url'][i]
+            
             text = news_text + " " + news_path
             api.update_status(text) 
             # record the news that has been sent
             send_news.append(news['id'][i])
-            # delete the news that has been sent
-            news = news.drop([i])
-        
+            
+            # check if the news['id'] is already in the news_id['id']
+            
+            # last_news_post = int(news['id'][i]) in news_id['id'].unique()
+            if news['id'][i] in news_id['id'].unique():
+                continue
+            else:
+                text = news_text + " " + news_path
+                api.update_status(text) 
+                # record the news that has been sent
+                send_news.append(news['id'][i])
+
+        except:
+            print("duplicate")
+    
         
     send_news_df = pd.DataFrame(send_news)
-    print(send_news_df)
-    send_news_df.columns = ['id']
-    news.to_csv("s3://projecttwitterbot/emotion/news_emotion.csv", index=False)
-    send_news_df.to_csv("s3://projecttwitterbot/emotion/send_news_id.csv", index=False)
+    send_news_df.rename(columns = {0:'id'}, inplace = True)
+    news_df = pd.concat([news_id, send_news_df]).drop_duplicates().reset_index(drop= True)
+    news_df.to_csv("s3://projecttwitterbot/emotion/send_news_id.csv", index=False)
         
 if __name__ in "__main__":
     news_post()

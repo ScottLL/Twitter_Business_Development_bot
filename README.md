@@ -11,7 +11,21 @@
 
 
 ## Project Description
-The project is for IDS 706 Data Engineering class at Duke University. The goal is to build a Microservice that performs a query using either Pandas, SQL or Dask/Spark and returns useful information to users. Our team created a series of Twitter bots to automate the process of soliciting business for entrepreneurs or start-ups with limited marketing budgets. 
+The project is for IDS 706 Data Engineering class at Duke University. The goal is to build a Microservice that performs a query using CI/CD, Python, SQL or Dask/Spark and returns useful information to users. Our team created a series of Twitter bots to automate the process of soliciting business for entrepreneurs or start-ups with limited marketing budgets. 
+
+### Bot solution for business development
+The ideas, projects, and actions that improve a business can be summed up as business development. This entails raising sales, expanding the business, improving profitability through forming strategic alliances, and making strategic business choices. In this project, we are building a bot to help the business run the Twitter account and reach out to the target user by sending them direct messages. 
+
+Benefits:
+1. Twitter bot help businesses reach out the more target audients and run the account automatically. 
+2. It can help businesses save time and employ costs to develop business. 
+3. Provide the public with a positive reputation for the business.
+4. Get real followers in a short time. 
+
+## Project Sponsor
+This project is sponsored by MEXC Global exchange, so we are run the bot with MEXC Twitter account. 
+
+**MEXC Global Exchange** is a centralized exchange that employs a high-performance mega-transaction matching technology. The CEX platform is run by a team of professionals with extensive financial industries and blockchain technology experience. Currently, MEXC Global has around 5 million users in more than 70 countries around the world.
 
 ## Data Flow Diagram
 ![twitter_bots](https://user-images.githubusercontent.com/105904149/207117949-4e53fda5-65a0-483c-87b8-460d34b3ac82.jpeg)
@@ -22,18 +36,21 @@ The project is for IDS 706 Data Engineering class at Duke University. The goal i
 
 `tweet_relative_account_bot.py`: retweets content based on popularity every 15 minutes.
 
-`retwitter_content_bot.py`: retweets content based on keywords.
+`retwitter_content_bot.py`: retweets content based on google searching keywords in google sheet.
+
+`News_df.py` : update the crypto News from CryptoPanic.com.
+
+`News_post.py` : post updates News to twitter.
+
+
 
 ## Demo Video
 [Group Project - Twitter Bots]()
 
 
 ## Sample Output
-### Official Twitter Account Bot
-
+### Business Development Twitter Bot
 #### 1. Build twitter_account_bot() function at Tweet_relative_account_bot.py
-
-* Company: MEXC Global is a centralized exchange that employs a high-performance mega-transaction matching technology. The CEX platform is run by a team of professionals with extensive financial industries and blockchain technology experience. Currently, MEXC Global has around 5 million users in more than 70 countries around the world.
 
 <img width="1478" alt="Screen Shot 2022-12-13 at 10 43 23 AM" src="https://user-images.githubusercontent.com/112274822/207389323-3c41aaaa-85b0-4861-a2db-69727e121a84.png">
 <img width="1428" alt="Screen Shot 2022-12-13 at 10 44 27 AM" src="https://user-images.githubusercontent.com/112274822/207389372-d93c45f5-e1af-404f-baaf-16c8486eb428.png">
