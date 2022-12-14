@@ -14,15 +14,18 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set up Python 3.10.8
       uses: actions/setup-python@v1
+      working-directory: ./twitterPost
       with:
         python-version: 3.10.8
         args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
 
     - name: Install dependencies
+      working-directory: ./twitterPost
       run: |
         make install
     
     - name: run python
+      working-directory: ./twitterPost
       env:
        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
@@ -33,7 +36,7 @@ jobs:
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
        
 
-       
+      working-directory: ./twitterPost
       run: |
         echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
         echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
