@@ -1,4 +1,4 @@
-name: Python newsApp/News_df.py
+name: Python News_df.py
 
 on:
   workflow_dispatch:
@@ -24,6 +24,7 @@ jobs:
         make install
   
     - name: run python
+      working-directory: ./newsApp
       env:
        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
@@ -32,5 +33,5 @@ jobs:
         echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
         echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
         echo CRYPTOPANIC_API_KEY: ${{ secrets.CRYPTOPANIC_API_KEY }}
-        python newsApp/News_df.py
+        python News_df.py
         

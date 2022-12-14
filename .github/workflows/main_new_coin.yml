@@ -1,4 +1,4 @@
-name: Python twitterPost/main_new_coin.py
+name: Python main_new_coin.py
 
 on:
   workflow_dispatch:
@@ -17,12 +17,14 @@ jobs:
       with:
         python-version: 3.10.8
         args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
+      
 
     - name: Install dependencies
       run: |
         make install
     
     - name: run python
+      working-directory: ./twitterPost
       env:
        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
@@ -32,6 +34,7 @@ jobs:
        TOKEN: ${{ secrets.TOKEN }}
        TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
       run: |
+        
         echo AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
         echo AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
         echo CONSUMER_KEY: "${CONSUMER_KEY}"
@@ -39,7 +42,7 @@ jobs:
         echo BEARER_TOKEN: "${BEARER_TOKEN}"
         echo TOKEN: "${TOKEN}"
         echo TOKEN_SECRET: "${TOKEN_SECRET}"
-        python twitterPost/main_new_coin.py
+        python main_new_coin.py
 
     
     

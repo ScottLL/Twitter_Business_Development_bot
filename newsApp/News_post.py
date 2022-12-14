@@ -25,14 +25,7 @@ def news_post():
         try:
             news_text = news['title'][i]
             news_path = news['url'][i]
-            
-            text = news_text + " " + news_path
-            api.update_status(text) 
-            # record the news that has been sent
-            send_news.append(news['id'][i])
-            
             # check if the news['id'] is already in the news_id['id']
-            
             # last_news_post = int(news['id'][i]) in news_id['id'].unique()
             if news['id'][i] in news_id['id'].unique():
                 continue
