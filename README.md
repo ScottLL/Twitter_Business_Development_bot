@@ -28,7 +28,8 @@ This project is sponsored by MEXC Global exchange, so we are run the bot with ME
 **MEXC Global Exchange** is a centralized exchange that employs a high-performance mega-transaction matching technology. The CEX platform is run by a team of professionals with extensive financial industries and blockchain technology experience. Currently, MEXC Global has around 5 million users in more than 70 countries around the world.
 
 ## Data Flow Diagram
-![twitter_bots](https://user-images.githubusercontent.com/105904149/207117949-4e53fda5-65a0-483c-87b8-460d34b3ac82.jpeg)
+<!-- ![twitter_bots](https://user-images.githubusercontent.com/105904149/207117949-4e53fda5-65a0-483c-87b8-460d34b3ac82.jpeg) -->
+<img width="1213" alt="Screen Shot 2022-12-13 at 11 14 46 PM" src="https://user-images.githubusercontent.com/43226003/207504403-82438e56-4eff-40f9-9172-efe16ae854b9.png">
 
 `searching_tweets.py`: searches for tweets every 15 minutes and adds new tweets to a csv file stored in an AWS S3 bucket.
 
