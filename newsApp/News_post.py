@@ -21,7 +21,7 @@ def news_post():
     news_id = news_id.dropna()
     send_news = []
     
-    for i in range(len(news[0:20])):
+    for i in range(len(news[0:25])):
         try:
             news_text = news['title'][i]
             news_path = news['url'][i]
