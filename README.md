@@ -9,6 +9,7 @@
 
 [![Python Tweet_relative_account_bot.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/Tweet_relative_account_bot_main.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/Tweet_relative_account_bot_main.yml)
 
+[![Python retwitter_content_bot.py](https://github.com/ScottLL/Twitter_Business_Development_bot/actions/workflows/retwitter.yml/badge.svg)](https://github.com/ScottLL/Twitter_Business_Development_bot/actions/workflows/retwitter.yml)
 
 ## Project Description
 The project is for IDS 706 Data Engineering class at Duke University. The goal is to build a Microservice that performs a query using CI/CD, Python, SQL or Dask/Spark and returns useful information to users. Our team created a series of Twitter bots to automate the process of soliciting business for entrepreneurs or start-ups with limited marketing budgets. 
