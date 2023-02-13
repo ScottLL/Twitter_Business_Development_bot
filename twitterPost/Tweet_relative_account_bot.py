@@ -25,13 +25,18 @@ def twitter_account_bot():
             print(f"\n{datetime.datetime.now()}\n")
             user_name = [
                 "MEXC_Global",
-                "MEXC_Eilla",
-                "MEXC_VIP",
-                "MEXCDerivatives",
-                "EtfMexc",
-                "MEXC_SEA",
-                "MEXC_Fans",
-                "MEXC_CEO",
+                "CryptoCoinNewz",
+                "NewsAsset",
+                "CryptoTradingCC",
+                "AltcoinDailyio",
+                "Cryptofeednews",
+                "SmartCryptoNew1",
+                "BitboyNews",
+                "itscrypto_news",
+                "BotsNews1",
+                "TheRugNews",
+                "CryptoCoiners"
+
             ]
             for i in range(len(user_name)):
                 var = tweepy.Cursor(
