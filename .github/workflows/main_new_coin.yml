@@ -3,8 +3,8 @@ name: Python main_new_coin.py
 on:
   workflow_dispatch:
   
-#   schedule:
-#    - cron: '0 1,20 * * *'
+  schedule:
+   - cron: '0 1,20 * * *'
     
 jobs:   
   build:
