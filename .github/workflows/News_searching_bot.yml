@@ -3,8 +3,8 @@ name: Python News_df.py
 on:
   workflow_dispatch:
     
-#   schedule:
-#     - cron: '* */4 * * *'
+  schedule:
+    - cron: '* */4 * * *'
     
 jobs:   
   build:
