@@ -104,14 +104,14 @@ smart_open==5.2.1
 smart_open[s3]
 fastapi
 uvicorn
-nltk
+# nltk
 openai
-spacy
-transformers 
-torch
-transformers[t5]
-bs4
-textblob
-python-dotenv
-newsapi-python
-random
+# spacy
+# transformers 
+# torch
+# transformers[t5]
+# bs4
+# textblob
+# python-dotenv
+# newsapi-python
+# random
