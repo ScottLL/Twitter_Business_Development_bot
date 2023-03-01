@@ -3,7 +3,7 @@
 
 [![Python main_old_coin.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main_old_coin.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/main_old_coin.yml)
 
-[![Python newsApp/News_df.py](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_searching_bot.yml/badge.svg)](https://github.com/ScottLL/Twitter_search_bot/actions/workflows/News_searching_bot.yml)
+[![Python News_df.py](https://github.com/ScottLL/Twitter_Business_Development_bot/actions/workflows/News_searching_bot.yml/badge.svg?branch=main)](https://github.com/ScottLL/Twitter_Business_Development_bot/actions/workflows/News_searching_bot.yml)
 
 [![Python Tweet_relative_account_bot.py](https://github.com/ScottLL/Twitter_Business_Development_bot/actions/workflows/Tweet_relative_account_bot_main.yml/badge.svg?branch=main)](https://github.com/ScottLL/Twitter_Business_Development_bot/actions/workflows/Tweet_relative_account_bot_main.yml)
 
