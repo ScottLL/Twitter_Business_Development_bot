@@ -24,7 +24,7 @@ def twitter_account_bot():
     while time.time() < timeout_start + timeout:
             print(f"\n{datetime.datetime.now()}\n")
             user_name = [
-                "MEXC_Global",
+                "NewsAsset",
                 "CryptoCoinNewz",
                 "NewsAsset",
                 "CryptoTradingCC",
@@ -35,7 +35,12 @@ def twitter_account_bot():
                 "itscrypto_news",
                 "BotsNews1",
                 "TheRugNews",
-                "CryptoCoiners"
+                "CryptoCoiners",
+                "itscrypto_news",
+                "BotsNews1",
+                "cryptonews",
+                "CryptolandNews",
+                "newswcrypto"
 
             ]
             for i in range(len(user_name)):

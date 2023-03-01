@@ -1,0 +1,171 @@
+import os
+import requests
+import random
+import tweepy
+from PIL import Image
+from io import BytesIO
+import time
+import openai
+
+    """
+    This is a python script that uses the CryptoPanic API to get the latest news in the crypto world and then uses the OpenAI GPT-3 API to generate a tweet about it.
+    
+    Functions:
+        * make_url(filter=None, kind=None, region=None, page=None):
+            This is a function that handles the URL variables for the API POST.
+            
+        * get_page_json(url=None):
+            This is a function that gets the first page of the API POST.
+        
+        * get_news():
+            This is a function that fetches the news from the CryptoPanic API.
+            
+        * generate_tweet():
+            This is a function that generates the tweet text and gets the news.
+        * post_tweet():
+            This is a function that posts the tweet with the image and URL.
+        * main():
+
+    Returns:
+        * A tweet with the latest news in the crypto world.
+        Check the twitter account: https://twitter.com/CryptoSamurai_D
+        This function is run every 4 hours check the yaml file for more info.
+    """
+
+CRYPTOPANIC_API_KEY = os.getenv('CRYPTOPANIC_API_KEY')
+
+# Authenticate to Twitter
+auth = tweepy.OAuthHandler(os.getenv('CONSUMER_KEY'), os.getenv('CONSUMER_SECRET'))
+auth.set_access_token(os.getenv('TOKEN'), os.getenv('TOKEN_SECRET'))
+api = tweepy.API(auth)
+
+# Authenticate to OpenAI
+openai.api_key = os.getenv('OPENAI_API_KEY')
+
+global_api_rate_delay = .2  # All API methods are rate limited per IP at 5req/sec.
+
+
+def make_url(filter=None, kind=None, region=None, page=None):
+    """Handle of URL variables for API POST."""
+    url = 'https://cryptopanic.com/api/v1/posts/?auth_token={}'.format(CRYPTOPANIC_API_KEY)
+
+    if kind is not None and kind in ['news', 'media']:
+        url += "&kind={}".format(kind)
+
+    filters = ['rising', 'hot', 'bullish', 'bearish', 'important', 'saved', 'lol']
+    if filter is not None and filter in filters:
+        url += "&filter={}".format(filter)
+
+    regions = ['en', 'de', 'es', 'fr', 'it', 'pt', 'ru']  # (English), (Deutsch), (Español), (Français), (Italiano), (Português), (Русский)--> Respectively
+    if region is not None and region in regions:
+        url += "&region={}".format(region)
+
+    if page is not None:
+        url += "&page={}".format(page)
+
+    return url
+
+
+def get_page_json(url=None):
+    """
+    Get First Page.
+
+    Returns Json.
+
+    """
+    time.sleep(global_api_rate_delay)
+    if not url:
+        url = "https://cryptopanic.com/api/v1/posts/?auth_token={}".format(CRYPTOPANIC_API_KEY)
+    page = requests.get(url)
+    data = page.json()
+    return data
+
+
+def get_news():
+    """Fetch news from CryptoPanic API."""
+    # Get top headlines from CryptoPanic
+    url = make_url(kind='news', filter='hot', region='en')
+    data = get_page_json(url)
+    articles = data['results']
+    if not articles:
+        return None, None, None
+    selected_article = random.choice(articles)
+
+    # Get the summary, original URL and image of the selected article
+    summary = selected_article['title']
+    metadata = selected_article.get('metadata', None)
+    if metadata is None:
+        news_url = selected_article['url']
+    else:
+        news_url = metadata.get('original_url', selected_article['url'])
+    image_url = selected_article.get('image', None)
+    if image_url:
+        # Download the image and convert to a PIL Image object
+        response = requests.get(image_url)
+        img = Image.open(BytesIO(response.content))
+    else:
+        img = None
+
+    return summary, news_url, img
+
+
+
+def generate_tweet():
+    """Generate tweet text and get news."""
+    # Get summary, URL and image from CryptoPanic API
+    summary, news_url, img = get_news()
+    if not summary:
+        return None, None, None
+
+    # Generate tweet text using GPT-3
+    prompt = f"What's the latest news related to {summary.strip()} in the crypto world? give me a summary of the news in 150 characters or less."
+    response = openai.Completion.create(
+        engine="davinci",
+        prompt=prompt,
+        temperature=0.7,
+        max_tokens=280 - len(news_url) - 1,
+        n=1,
+        stop=None,
+        timeout=10,
+    )
+    tweet_text = response.choices[0].text.strip()
+
+    return tweet_text, news_url, img
+
+
+def post_tweet():
+    """Post tweet with image and URL."""
+    # Generate tweet text, news URL and image
+    tweet_text, news_url, img = generate_tweet()
+
+    # Post tweet
+    if img is not None:
+        # Save image locally
+        img_path = "image.jpg"
+        img.save(img_path)
+
+        # Post tweet with image
+        try:
+            api.update_with_media(
+                filename=img_path,
+                status=f"{tweet_text[:230]} {news_url}"
+            )
+        except tweepy.TweepError as e:
+            print(e)
+            return
+
+        # Remove image file
+        os.remove(img_path)
+    else:
+        # Post tweet without image
+        try:
+            api.update_status(f"{tweet_text[:280 - len(news_url) - 1]} {news_url}")
+        except tweepy.TweepError as e:
+            print(e)
+            return
+
+import time
+
+if __name__ == "__main__":
+    post_tweet()
+        # time.sleep(1800)  # wait for 30 minutes before posting again
