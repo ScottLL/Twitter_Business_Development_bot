@@ -7,30 +7,6 @@ from io import BytesIO
 import time
 import openai
 
-    """
-    This is a python script that uses the CryptoPanic API to get the latest news in the crypto world and then uses the OpenAI GPT-3 API to generate a tweet about it.
-    
-    Functions:
-        * make_url(filter=None, kind=None, region=None, page=None):
-            This is a function that handles the URL variables for the API POST.
-            
-        * get_page_json(url=None):
-            This is a function that gets the first page of the API POST.
-        
-        * get_news():
-            This is a function that fetches the news from the CryptoPanic API.
-            
-        * generate_tweet():
-            This is a function that generates the tweet text and gets the news.
-        * post_tweet():
-            This is a function that posts the tweet with the image and URL.
-        * main():
-
-    Returns:
-        * A tweet with the latest news in the crypto world.
-        Check the twitter account: https://twitter.com/CryptoSamurai_D
-        This function is run every 4 hours check the yaml file for more info.
-    """
 
 CRYPTOPANIC_API_KEY = os.getenv('CRYPTOPANIC_API_KEY')
 
