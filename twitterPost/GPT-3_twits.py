@@ -7,6 +7,10 @@ from io import BytesIO
 import time
 import openai
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93510894f5f3a4d4acb0fff23fbaf4493a89a915
 CRYPTOPANIC_API_KEY = os.getenv('CRYPTOPANIC_API_KEY')
 
 # Authenticate to Twitter
