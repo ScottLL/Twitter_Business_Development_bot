@@ -83,36 +83,6 @@ def get_news():
 
     return summary, news_url, img
 
-
-
-# def generate_tweet():
-#     """Generate tweet text and get news."""
-#     # Get summary, URL and image from CryptoPanic API
-#     summary, news_url, img = get_news()
-#     if not summary:
-#         return None, None, None
-
-#     # Generate tweet text using GPT-3
-#     prompt = f"What's the latest news related to {summary.strip()} in the crypto world? give me a summary of the news in 150 characters or less, and add hashtags before the keywords at the begining of the sentense you generate."
-#     response = openai.Completion.create(
-#         engine="davinci",
-#         prompt=prompt,
-#         temperature=0.7,
-#         max_tokens=280 - len(news_url) - 1,
-#         n=1,
-#         stop=None,
-#         timeout=10,
-#     )
-#     tweet_text = response.choices[0].text.strip()
-
-#     return tweet_text, news_url, img
-
-
-# import os
-# import openai
-
-# openai.api_key = os.getenv("OPENAI_API_KEY")
-
 def generate_tweet():
     """Generate tweet text and get news."""
     # Get summary, URL and image from CryptoPanic API
