@@ -119,7 +119,7 @@ def generate_tweet():
     summary, news_url, img = get_news()
     if not summary:
         return None, None, None
-    prompt = f"What's the latest news related to {summary.strip()} in the crypto world? give me a summary of the news in 150 characters or less, and add hashtags before the keywords at the begining of the sentense you generate."
+    prompt = f"What's the latest news related to {summary.strip()} in the crypto world? give me a summary of the news in 150 characters or less, and add hashtags before the keywords at the begining of the sentense you generate. no space between sentense."
     message_log = [{"role": "user","content": prompt}]
     response = openai.ChatCompletion.create(
         model = "gpt-3.5-turbo",
