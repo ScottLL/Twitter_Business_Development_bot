@@ -3,8 +3,8 @@ name: Python GPT-3_twits.py
 on:
   workflow_dispatch:
     
-  schedule:
-    - cron: '0 */2 * * *'
+#   schedule:
+#     - cron: '0 */2 * * *'
     
 jobs:   
   build:
